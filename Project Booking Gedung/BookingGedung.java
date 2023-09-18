@@ -4,18 +4,18 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, layananTambahan;
-        int tanggalPemesanan, tanggalPelaksanaanAcara, jumlahTamu;
+        String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan;
+        int jumlahTamu;
 
         //INPUT
         System.out.print("Masukkan Nama : ");
         identitasPemesan = input.nextLine();
 
         System.out.print("Masukkan Tanggal : ");
-        tanggalPemesanan = input.nextInt();
+        tanggalPemesanan = input.nextLine();
 
         System.out.print("Tanggal Pelaksanaan Acara : ");
-        tanggalPelaksanaanAcara = input.nextInt();
+        tanggalPelaksanaanAcara = input.nextLine();
 
         System.out.print("Jumlah Tamu Undangan : ");
         jumlahTamu = input.nextInt();
