@@ -26,6 +26,9 @@ public class BookingGedung {
         System.out.print("Layanan Tambahan : ");
         layananTambahan = input.next();
 
+        System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
+        jumlahTamu = input.nextInt();
+
         boolean pemesananBerhasil = true;
         //OUTPUT
         if (pemesananBerhasil) {
