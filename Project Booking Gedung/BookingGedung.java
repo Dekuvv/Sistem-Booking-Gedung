@@ -58,7 +58,7 @@ public class BookingGedung {
             System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
 
         }
-        //CLOSING SCANNER
+        //CLOSING SCANNER oioioioioioi
         input.close();
     }
 }
