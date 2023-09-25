@@ -45,7 +45,7 @@ public class BookingGedung {
             layananTambahan = input.next();
 
         boolean pemesananBerhasil = true;
-        //OUTPUTTTT
+        //OUTPUTAN
         if (pemesananBerhasil) {
             System.out.println("------ Pemesanan Telah Berhasil------");
             System.out.println("Nama Pemesan : " + identitasPemesan);
