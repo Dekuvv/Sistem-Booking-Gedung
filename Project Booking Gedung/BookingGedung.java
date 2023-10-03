@@ -7,7 +7,7 @@ public class BookingGedung {
         String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan;
         int jumlahTamu;
 
-        //INPUTttt
+        //INPUT
         System.out.print("Masukkan Nama : ");
         identitasPemesan = input.nextLine();
 
