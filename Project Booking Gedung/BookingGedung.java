@@ -7,7 +7,7 @@ public class BookingGedung {
         String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan;
         int jumlahTamu;
 
-        //INPUTannnnan
+        //INPUT
         System.out.print("Masukkan Nama : ");
         identitasPemesan = input.nextLine();
 
@@ -41,8 +41,35 @@ public class BookingGedung {
            jenisGedung = "coba lagi";
          }
 
-           System.out.print("Layanan Tambahan : ");
+           System.out.println("Layanan Tambahan : ");
+           System.out.println("1. Catering");
+           System.out.println("2. MC");
+           System.out.println("3. Photography + Video Graphy");
+           System.out.println("4. Dekorasi");
+           System.out.println("5. Musik dan Hiburan");
+           System.out.print("Masukkan nomor layanan tambahan yang anda pilih: ");
             layananTambahan = input.next();
+
+            switch (layananTambahan) {
+                case "1":
+                    layananTambahan = "Catering";
+                    break;
+                case "2":
+                    layananTambahan = "MC";
+                    break;
+                case "3":
+                    layananTambahan = "Photography + Video Graphy";
+                    break;
+                case "4":
+                    layananTambahan = "Dekorasi";
+                    break;
+                case "5":
+                    layananTambahan = "Musik dan Hiburan";
+                    break;
+                default: System.out.println("Coba Lagi");
+                    break;
+            }
+           
 
         boolean pemesananBerhasil = true;
         //OUTPUTTTT
