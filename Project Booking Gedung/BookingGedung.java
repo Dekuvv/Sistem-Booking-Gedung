@@ -7,7 +7,7 @@ public class BookingGedung {
         String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan;
         int jumlahTamu;
 
-        //INPUTannnn
+        //INPUT
         System.out.print("Masukkan Nama : ");
         identitasPemesan = input.nextLine();
 
@@ -19,6 +19,13 @@ public class BookingGedung {
 
         System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
         jumlahTamu = input.nextInt();
+
+        while (!(jumlahTamu <= 400)){
+            System.out.println("Tamu undangan anda melebihi kapasitas");
+            System.out.println("Silahkan coba lagi");
+            System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
+            jumlahTamu = input.nextInt();
+        }
 
               if (jumlahTamu <=200) {
             System.out.println("Anda akan menggunakan Gedung A");
@@ -41,8 +48,35 @@ public class BookingGedung {
            jenisGedung = "coba lagi";
          }
 
-           System.out.print("Layanan Tambahan : ");
+           System.out.println("Layanan Tambahan : ");
+           System.out.println("1. Catering");
+           System.out.println("2. MC");
+           System.out.println("3. Photography + Video Graphy");
+           System.out.println("4. Dekorasi");
+           System.out.println("5. Musik dan Hiburan");
+           System.out.print("Masukkan nomor layanan tambahan yang anda pilih: ");
             layananTambahan = input.next();
+
+            switch (layananTambahan) {
+                case "1":
+                    layananTambahan = "Catering";
+                    break;
+                case "2":
+                    layananTambahan = "MC";
+                    break;
+                case "3":
+                    layananTambahan = "Photography + Video Graphy";
+                    break;
+                case "4":
+                    layananTambahan = "Dekorasi";
+                    break;
+                case "5":
+                    layananTambahan = "Musik dan Hiburan";
+                    break;
+                default: System.out.println("Coba Lagi");
+                    break;
+            }
+           
 
         boolean pemesananBerhasil = true;
         //OUTPUTTTT
