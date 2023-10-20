@@ -4,8 +4,8 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan;
-        int jumlahTamu;
+        String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan ,alamatEmail;
+        int jumlahTamu,nomorTelepon;
 
         //INPUT
         System.out.print("Masukkan Nama : ");
@@ -19,6 +19,12 @@ public class BookingGedung {
 
         System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
         jumlahTamu = input.nextInt();
+
+        System.out.print("Masukkan Nomor Telepon : ");
+        nomorTelepon = input.nextInt();
+
+        System.out.print("Masukkan Alamat Email :");
+        alamatEmail = input.next();
 
         while (!(jumlahTamu <= 400)){
             System.out.println("Tamu undangan anda melebihi kapasitas");
@@ -83,11 +89,15 @@ public class BookingGedung {
         if (pemesananBerhasil) {
             System.out.println("------ Pemesanan Telah Berhasil------");
             System.out.println("Nama Pemesan : " + identitasPemesan);
+            System.out.println("Nomor Handphone Pemesan : " + nomorTelepon);
+            System.out.println("Alamat Email Pemesan : " + alamatEmail);
             System.out.println("Tanggal Pemesanan : " + tanggalPemesanan);
             System.out.println("Tanggal Pelaksanaan Acara : " + tanggalPelaksanaanAcara);
             System.out.println("Jumlah Tamu Undangan : " + jumlahTamu);
             System.out.println("Jenis Gedung : " + jenisGedung);
             System.out.println("Layanan Tambahan: " + layananTambahan);
+            System.out.println("Nomor Telepon : " + nomorTelepon);
+            System.out.println("Alamat Email : " + alamatEmail);
         } else {
             System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
 
