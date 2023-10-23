@@ -4,7 +4,8 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, layananTambahan, tanggalPelaksanaanAcara, tanggalPemesanan ,alamatEmail;
+        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara, layananTambahan, tanggalPemesanan ,alamatEmail, konfirmasi;
+        String layananTambahan2 [] = new String[5];
         int jumlahTamu,nomorTelepon;
 
         //INPUT
@@ -20,10 +21,20 @@ public class BookingGedung {
         System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
         jumlahTamu = input.nextInt();
 
+         if (jumlahTamu <=200) {
+            System.out.println("Anda akan menggunakan Gedung A");
+        }else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
+            System.out.println("Anda akan menggunakan Gedung B");
+        }else if (300<= jumlahTamu && jumlahTamu <= 400) {
+            System.out.println("Anda akan menggunakan Gedung C");
+        }else{
+            System.out.println("Yang bener masukin tamunya woi");
+        }
+
         System.out.print("Masukkan Nomor Telepon : ");
         nomorTelepon = input.nextInt();
 
-        System.out.print("Masukkan Alamat Email :");
+        System.out.print("Masukkan Alamat Email : ");
         alamatEmail = input.next();
 
         while (!(jumlahTamu <= 400)){
@@ -33,55 +44,46 @@ public class BookingGedung {
             jumlahTamu = input.nextInt();
         }
 
-              if (jumlahTamu <=200) {
-            System.out.println("Anda akan menggunakan Gedung A");
-               } else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
-                System.out.println("Anda akan menggunakan Gedung B");
-               }else if (300<= jumlahTamu && jumlahTamu <= 400) {
-                System.out.println("Anda akan menggunakan Gedung C");
-               } else {
-                System.out.println("Yang bener masukin tamunya woi");
-               }
-        
-
- if (jumlahTamu <=200) {
+        if (jumlahTamu <=200) {
             jenisGedung = "Gedung A";
-         }else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
+        }else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
             jenisGedung = "Gedung B";
-         }else if (300<= jumlahTamu && jumlahTamu <= 400){
+        }else if (300<= jumlahTamu && jumlahTamu <= 400){
             jenisGedung = "Gedung C";
-         }else {
+        }else {
            jenisGedung = "coba lagi";
-         }
-
+        }
+        
            System.out.println("Layanan Tambahan : ");
            System.out.println("1. Catering");
            System.out.println("2. MC");
            System.out.println("3. Photography + Video Graphy");
            System.out.println("4. Dekorasi");
            System.out.println("5. Musik dan Hiburan");
-           System.out.print("Masukkan nomor layanan tambahan yang anda pilih: ");
-            layananTambahan = input.next();
-
-            switch (layananTambahan) {
-                case "1":
-                    layananTambahan = "Catering";
-                    break;
-                case "2":
-                    layananTambahan = "MC";
-                    break;
-                case "3":
-                    layananTambahan = "Photography + Video Graphy";
-                    break;
-                case "4":
-                    layananTambahan = "Dekorasi";
-                    break;
-                case "5":
-                    layananTambahan = "Musik dan Hiburan";
-                    break;
-                default: System.out.println("Coba Lagi");
-                    break;
-            }
+           int jmlLayananTambahan = 0;
+           do{
+           System.out.print("Masukkan nomor layanan tambahan yang anda pilih : ");
+           layananTambahan = input.next();
+                if (layananTambahan.equalsIgnoreCase("1")){
+                    layananTambahan2[jmlLayananTambahan] = "Catering";
+                    jmlLayananTambahan++;
+                }else if (layananTambahan.equalsIgnoreCase("2")){
+                    layananTambahan2[jmlLayananTambahan] = "MC";
+                    jmlLayananTambahan++;
+                }else if (layananTambahan.equalsIgnoreCase("3")){
+                    layananTambahan2[jmlLayananTambahan] = "Photography + Video Graphy";
+                    jmlLayananTambahan++;
+                }else if (layananTambahan.equalsIgnoreCase("4")){
+                    layananTambahan2 [jmlLayananTambahan]= "Dekorasi";
+                    jmlLayananTambahan++;
+                }else if (layananTambahan.equalsIgnoreCase("5")){
+                    layananTambahan2 [jmlLayananTambahan] = "Musik dan Hiburan";
+                    jmlLayananTambahan++;
+                }
+            System.out.print("Apakah Ingin Menambah Layanan Tambahan?\n(y) untuk iya\n(t) untuk tidak : ");
+            konfirmasi = input.next();
+            }while (konfirmasi.equalsIgnoreCase("y"));
+            
            
 
         boolean pemesananBerhasil = true;
@@ -95,7 +97,15 @@ public class BookingGedung {
             System.out.println("Tanggal Pelaksanaan Acara : " + tanggalPelaksanaanAcara);
             System.out.println("Jumlah Tamu Undangan : " + jumlahTamu);
             System.out.println("Jenis Gedung : " + jenisGedung);
-            System.out.println("Layanan Tambahan: " + layananTambahan);
+    
+            int i = 0, j = 1;
+            System.out.println("Layanan Tambahan:");
+            while (i < jmlLayananTambahan){
+                System.out.println(j + "." + " " +layananTambahan2[i]);
+                i++;
+                j++;
+            }
+
             System.out.println("Nomor Telepon : " + nomorTelepon);
             System.out.println("Alamat Email : " + alamatEmail);
         } else {
