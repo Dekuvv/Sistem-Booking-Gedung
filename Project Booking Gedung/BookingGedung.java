@@ -4,10 +4,10 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara, layananTambahan, tanggalPemesanan ,alamatEmail, konfirmasi;
+        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara, layananTambahan, tanggalPemesanan ,nomorTelepon,alamatEmail, konfirmasi;
         String layananTambahan2 [] = new String[5];
-        int jumlahTamu,nomorTelepon;
-
+        int jumlahTamu;
+        
         //INPUT
         System.out.print("Masukkan Nama : ");
         identitasPemesan = input.nextLine();
@@ -32,7 +32,7 @@ public class BookingGedung {
         }
 
         System.out.print("Masukkan Nomor Telepon : ");
-        nomorTelepon = input.nextInt();
+        nomorTelepon = input.next();
 
         System.out.print("Masukkan Alamat Email : ");
         alamatEmail = input.next();
