@@ -125,10 +125,17 @@ public class BookingGedung {
             System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
             System.out.println("=======================================================================");
         } else {
-                System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
+            System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
+            
         }
             
         }
+        System.out.println("\n===================================================================");
+        System.out.println("||                                                               ||");
+        System.out.println("||                        TERIMAKASIH                            ||");
+        System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+        System.out.println("||                                                               ||");
+        System.out.println("==================================================================="); 
         //CLOSING SCANNER
         input.close();
     }
