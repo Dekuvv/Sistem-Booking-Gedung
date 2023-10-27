@@ -23,7 +23,7 @@ public class BookingGedung {
         System.out.print("Masukkan Tanggal\t: ");
         tanggalPemesanan = input.nextInt();
 
-        System.out.println("Acara yang akan digelar : (pernikahan / rapat) ");
+        System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
         if (acara.equalsIgnoreCase("pernikahan")) {
 
