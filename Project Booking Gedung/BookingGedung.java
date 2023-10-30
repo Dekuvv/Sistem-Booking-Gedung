@@ -25,7 +25,8 @@ public class BookingGedung {
 
         System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
-        if (acara.equalsIgnoreCase("pernikahan")) {
+        if (acara.equalsIgnoreCase("pernikahan")) 
+        {
 
             System.out.print("Tanggal Pelaksanaan Acara : ");
             input.nextLine();
@@ -130,6 +131,28 @@ public class BookingGedung {
         }
             
         }
+        else if (acara.equalsIgnoreCase("rapat"));
+        System.out.print("Tanggal Pelaksanaan Acara: ");
+        input.nextLine();
+        tanggalPelaksanaanAcara = input.nextLine();
+
+        System.out.print ("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu :  ");
+        jumlahTamu = input.nextInt();
+
+        if (jumlahTamu <= 20){
+            System.out.println("Anda akan menggunakan Gedung Aa");
+        }else if (20 <= jumlahTamu && jumlahTamu <= 30){
+            System.out.println("Anda akan menggunakan Gedung BB");
+        }else if (30 <= jumlahTamu && jumlahTamu <= 50 ){
+            System.out.println("Anda akan menggunakan Gedung Cc");
+        }else{
+            System.out.println("Jumlah tamu melebihi daya tampung gedung kami");
+        }
+
+
+
+
+
         System.out.println("\n===================================================================");
         System.out.println("||                                                               ||");
         System.out.println("||                        TERIMAKASIH                            ||");
