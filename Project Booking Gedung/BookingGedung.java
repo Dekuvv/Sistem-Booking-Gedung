@@ -149,6 +149,29 @@ public class BookingGedung {
             System.out.println("Jumlah tamu melebihi daya tampung gedung kami");
         }
 
+         System.out.print("Masukkan Nomor Telepon : ");
+        nomorTelepon = input.next();
+        
+        System.out.print("Masukkan Alamat Email  : ");
+        alamatEmail = input.next();
+        
+        while (!(jumlahTamu <= 400)){
+            System.out.println("Tamu undangan anda melebihi kapasitas");
+            System.out.println("Silahkan coba lagi");
+            System.out.print("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu:  ");
+            jumlahTamu = input.nextInt();
+        }
+        
+        if (jumlahTamu <= 20) {
+            jenisGedung = "Gedung Aa";
+        }else if (20 <= jumlahTamu && jumlahTamu <= 30 ) {
+            jenisGedung = "Gedung Bb";
+        }else if (30 <= jumlahTamu && jumlahTamu <= 50){
+            jenisGedung = "Gedung Cc";
+        }else {
+            jenisGedung = "coba lagi";
+        }
+
 
 
 
