@@ -4,7 +4,7 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
+        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 [] = new String[5];
         int jumlahTamu, tanggalPemesanan;
         
@@ -127,14 +127,14 @@ public class BookingGedung {
             System.out.println("=======================================================================");
         } else {
             System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
-            
+         
         }
             
         }
-        else if (acara.equalsIgnoreCase("rapat"));
+        if (acara.equalsIgnoreCase("rapat"));
         System.out.print("Tanggal Pelaksanaan Acara: ");
         input.nextLine();
-        tanggalPelaksanaanAcara = input.nextLine();
+        tanggalPelaksanaanRapat = input.nextLine();
 
         System.out.print ("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu :  ");
         jumlahTamu = input.nextInt();
@@ -142,7 +142,7 @@ public class BookingGedung {
         if (jumlahTamu <= 20){
             System.out.println("Anda akan menggunakan Gedung Aa");
         }else if (20 <= jumlahTamu && jumlahTamu <= 30){
-            System.out.println("Anda akan menggunakan Gedung BB");
+            System.out.println("Anda akan menggunakan Gedung Bb");
         }else if (30 <= jumlahTamu && jumlahTamu <= 50 ){
             System.out.println("Anda akan menggunakan Gedung Cc");
         }else{
@@ -155,7 +155,7 @@ public class BookingGedung {
         System.out.print("Masukkan Alamat Email  : ");
         alamatEmail = input.next();
         
-        while (!(jumlahTamu <= 400)){
+        while (!(jumlahTamu <= 50)){
             System.out.println("Tamu undangan anda melebihi kapasitas");
             System.out.println("Silahkan coba lagi");
             System.out.print("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu:  ");
