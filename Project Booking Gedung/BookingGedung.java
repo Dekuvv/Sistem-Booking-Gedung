@@ -5,7 +5,7 @@ public class BookingGedung {
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
         String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
-        String layananTambahan2 [] = new String[5];
+        String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
         
         //Penampilan awal
@@ -128,7 +128,7 @@ public class BookingGedung {
         } else {
             System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
          
-        }
+        }return;
             
         }
         if (acara.equalsIgnoreCase("rapat"));
