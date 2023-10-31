@@ -4,7 +4,7 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
+        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan,layananTambahanRapat, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
         
@@ -149,7 +149,7 @@ public class BookingGedung {
             System.out.println("Jumlah tamu melebihi daya tampung gedung kami");
         }
 
-         System.out.print("Masukkan Nomor Telepon : ");
+        System.out.print("Masukkan Nomor Telepon : ");
         nomorTelepon = input.next();
         
         System.out.print("Masukkan Alamat Email  : ");
@@ -171,6 +171,14 @@ public class BookingGedung {
         }else {
             jenisGedung = "coba lagi";
         }
+        
+        System.out.println("Layanan Tambahan: ");
+        System.out.println("1. Snack ");
+        System.out.println("2. Minuman");
+        System.out.println("3. LCD Proyektor");
+        System.out.println("4. Kabel");
+    
+
 
 
 
