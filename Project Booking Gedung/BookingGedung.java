@@ -11,7 +11,7 @@ public class BookingGedung {
         //Penampilan awal
         System.out.println("===================================================================");
         System.out.println("||                                                               ||");
-        System.out.println("||                       SELAMAT DATANG                          ||");
+        System.out.println("||                       SELAMAT DATANG    asu                      ||");
         System.out.println("||                      DI HOTEL DE'LOBBY                        ||");
         System.out.println("||                                                               ||");
         System.out.println("===================================================================");
