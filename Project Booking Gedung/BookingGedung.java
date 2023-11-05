@@ -22,7 +22,7 @@ public class BookingGedung {
 
         System.out.print("Masukkan Tanggal\t: ");
         tanggalPemesanan = input.nextInt();
-
+        input.nextLine();
         System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
         if (acara.equalsIgnoreCase("pernikahan")) 
@@ -68,20 +68,44 @@ public class BookingGedung {
             jenisGedung = "coba lagi";
         }
         
-        System.out.println("Layanan Tambahan : ");
-        System.out.println("1. Catering");
-        System.out.println("2. MC");
-        System.out.println("3. Photography + Video Graphy");
-        System.out.println("4. Dekorasi");
-        System.out.println("5. Musik dan Hiburan");
+        String pilihanMenu, confirmCatering;
+        String menu [] = new String[3];
+        int k = 0, l = 0;
+        boolean cateringBoolean = false;
         int jmlLayananTambahan = 0;
-
         do{
+            System.out.println("Layanan Tambahan : ");
+            System.out.println("1. Catering");
+            System.out.println("2. MC");
+            System.out.println("3. Photography + Video Graphy");
+            System.out.println("4. Dekorasi");
+            System.out.println("5. Musik dan Hiburan");
             System.out.print("Masukkan nomor layanan tambahan yang anda pilih : ");
             layananTambahan = input.next();
             if (layananTambahan.equals("1")){
                 layananTambahan2[jmlLayananTambahan] = "Catering";
                 jmlLayananTambahan++;
+                cateringBoolean = true;
+                do {
+                    System.out.print("1. Paket A: makan    makan   makan \n2. Paket B: makan2    makan2    makan2\n3. Paket C: Makan3  makan3\nPilih nomor untuk paket catering: ");
+                    pilihanMenu = input.next();
+                        switch (pilihanMenu) {
+                            case "1" : menu [k] = "makan    makan   makan";
+                                k++;
+                                break;
+                            case "2" : menu [k] = "makan2   makan2    makan2";
+                                k++;
+                                break;
+                            case "3" : menu [k] = "Makan3   makan3";
+                                k++;
+                                break;
+                            default:
+                                break;
+                        }
+                    System.out.print("Apakah anda mau menambah paket lagi? (y/t): ");
+                    confirmCatering = input.next();
+                    l++;
+                }while (confirmCatering.equalsIgnoreCase("y"));
             }if (layananTambahan.equals("2")){
                 layananTambahan2[jmlLayananTambahan] = "MC";
                 jmlLayananTambahan++;
@@ -115,11 +139,17 @@ public class BookingGedung {
             System.out.println("         Jenis Gedung\t\t\t: " + jenisGedung);
 
             int i = 0, j = 1;
-            System.out.print("         Layanan Tambahan\t\t: " );
+            System.out.println("         Layanan Tambahan\t\t: " );
             while (i < jmlLayananTambahan){
-                System.out.println("" + j + "." + " " + layananTambahan2[i] );
+                System.out.println("         " + j + "." + " " + layananTambahan2[i] );
                 i++;
                 j++;
+            }
+            if (cateringBoolean = true){
+                System.out.println("         Pesanan Catering: ");
+                for (int m = 0 ; m < l ; m++){
+                    System.out.println("          - " + menu [m]);
+                } 
             }
             
             System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
