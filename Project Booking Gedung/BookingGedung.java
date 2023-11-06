@@ -96,7 +96,7 @@ public class BookingGedung {
                             case "2" : menu [k] = "makan2   makan2    makan2";
                                 k++;
                                 break;
-                            case "3" : menu [k] = "Makan3   makan3";
+                            case "3" : menu [k] = "Makan3  makan3";
                                 k++;
                                 break;
                             default:
