@@ -199,7 +199,7 @@ public class BookingGedung {
             }else if (30 <= jumlahTamu && jumlahTamu <= 50){
                 jenisGedung = "Gedung Cc";
             }else {
-                jenisGedung = "coba lagi";
+                jenisGedung = "Coba lagi";
             }
             
             System.out.println("Layanan Tambahan: ");
