@@ -4,7 +4,7 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan,layananTambahanRapat, nomorTelepon,alamatEmail, konfirmasi, acara;
+        String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
         
@@ -202,20 +202,44 @@ public class BookingGedung {
                 jenisGedung = "Coba lagi";
             }
             
+            String layananTambahanRapat [] = new String [4];
             System.out.println("Layanan Tambahan: ");
             System.out.println("1. Snack ");
             System.out.println("2. Minuman");
             System.out.println("3. LCD Proyektor");
             System.out.println("4. Kabel");
+            System.out.print("Pilih layanan tambahan anda: ");
+            int pilihan = input.nextInt();
+
+            switch (pilihan) {
+                case 1:
+                    layananTambahanRapat[0] = "Snack";
+                    break;
+                case 2:
+                    layananTambahanRapat[1] = "Minuman";
+                case 3:
+                    layananTambahanRapat[2] = "LCD Proyektor";
+                case 4:
+                    layananTambahanRapat[3] = "Kabel";
+                default:
+                    System.out.println("Pilihan layanan tambahan tidak dapat diproses");
+                    break;
+            }
+            System.out.print("Layanan Tambahan yang Anda Pilih: " );
+            for (String layanan : layananTambahanRapat) {
+                if (layanan != null) {
+                    System.out.println(layanan);
+                }
+            }
+            System.out.println("\n===================================================================");
+            System.out.println("||                                                               ||");
+            System.out.println("||                        TERIMAKASIH                            ||");
+            System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+            System.out.println("||                                                               ||");
+            System.out.println("==================================================================="); 
+            //CLOSING SCANNER
+            input.close();
         }
 
-        System.out.println("\n===================================================================");
-        System.out.println("||                                                               ||");
-        System.out.println("||                        TERIMAKASIH                            ||");
-        System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
-        System.out.println("||                                                               ||");
-        System.out.println("==================================================================="); 
-        //CLOSING SCANNER
-        input.close();
     }
 }
