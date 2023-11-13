@@ -65,7 +65,11 @@ public class BookingGedung {
             input.nextLine();
             tanggalPelaksanaanAcara = input.nextLine();
             
-            System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu :  ");
+            System.out.println("Jumlah Tamu Undangan: ");
+            System.out.println("Gedung A = 100 - 200 ");
+            System.out.println("Gedung B = 200 - 300 ");
+            System.out.println("Gedung C = 300 - 400 ");
+            System.out.print("Masukkan Jumlah Tamu : ");
             jumlahTamu = input.nextInt();
             
             if (jumlahTamu <=200) {
