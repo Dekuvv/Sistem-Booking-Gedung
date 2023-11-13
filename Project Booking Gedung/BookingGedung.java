@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BookingGedung {
@@ -240,6 +241,25 @@ public class BookingGedung {
                 confirm = input.next().charAt(0);
                 
             } while (confirm == 'Y' || confirm == 'y');
+
+            boolean pemesananBerhasil = true;
+            if (pemesananBerhasil){
+                 System.out.println("\n=======================================================================");
+                System.out.println("                          NOTA PEMESANAN                        ");
+                System.out.println("         Nama Pemesan\t\t\t: " + identitasPemesan);
+                System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
+                System.out.println("         Alamat Email Pemesan\t\t: " + alamatEmail);
+                System.out.println("         Tanggal Pemesanan\t\t: " + tanggalPemesanan);
+                System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat);
+                System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
+                System.out.println("         Jenis Gedung\t\t\t: " + jenisGedung);
+                System.out.println("         Layanan Tambahan\t\t: " + Arrays.toString(layananTambahanRapat));
+                System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
+                System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
+                System.out.println("=======================================================================");
+            } else {
+                System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
+            }
 
 
             System.out.println("\n===================================================================");
