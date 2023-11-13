@@ -31,7 +31,7 @@ public class BookingGedung {
             
             for (int i = 0; i < akun.length; i++) {
                 for (int j = 0; j < akun[i].length; j++)
-                if (username.equals(akun[i][0]) && pin.equals(password[i][0])) {
+                if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
                     login = true;
                     System.out.println("=========================");
                     System.out.println("|| Login anda berhasil ||");
