@@ -205,13 +205,13 @@ public class BookingGedung {
                 jenisGedung = "Coba lagi";
             }
             
+            //LAYANAN TAMBAHAN RAPAT
             String layananTambahanRapat [] = new String [4];
             System.out.println("Layanan Tambahan: ");
             System.out.println("1. Snack ");
             System.out.println("2. Minuman");
             System.out.println("3. LCD Proyektor");
             System.out.println("4. Kabel");
-            
             char confirm;
             do {
                 System.out.print("Pilih layanan tambahan anda: ");
@@ -242,6 +242,7 @@ public class BookingGedung {
                 
             } while (confirm == 'Y' || confirm == 'y');
 
+            //NOTA PEMESANAN RAPAT
             boolean pemesananBerhasil = true;
             if (pemesananBerhasil){
                  System.out.println("\n=======================================================================");
