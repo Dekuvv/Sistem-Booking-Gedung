@@ -25,6 +25,7 @@ public class BookingGedung {
         input.nextLine();
         System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
+        //Acara pernikahan
         if (acara.equalsIgnoreCase("pernikahan")) 
         {
 
@@ -161,6 +162,7 @@ public class BookingGedung {
             }return;
                 
             }
+        //Acara rapat
         else if (acara.equalsIgnoreCase("rapat")){
             System.out.print("Tanggal Pelaksanaan Acara: ");
             input.nextLine();
