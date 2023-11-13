@@ -8,7 +8,10 @@ public class BookingGedung {
         String identitasPemesan, jenisGedung, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
-        
+
+        String [][] akun = {{"Adit Bagus Sadewa"}, {"Muhammad Kemal Syahru Ramadhan"}, {"Dhevina Agustina"}};
+        int [][] password = {{23417601} , {23417602}, {23417603}};
+
         //Penampilan awal
         System.out.println("===================================================================");
         System.out.println("||                                                               ||");
@@ -16,6 +19,33 @@ public class BookingGedung {
         System.out.println("||                      DI HOTEL DE'LOBBY                        ||");
         System.out.println("||                                                               ||");
         System.out.println("===================================================================");
+    
+        //lOGIN
+        boolean login = false;
+
+        do {
+            System.out.print("Masukkan Akun Anda\t: ");
+            String username = input.nextLine();
+            System.out.print("Masukkan PIN Anda\t: ");
+            int pin = input.nextInt();
+            input.nextLine();
+            
+            for (int i = 0; i < akun.length; i++) {
+                if (username.equals(akun[i][0]) && pin == password[i][0]) {
+                    login = true;
+                    System.out.println("=======================");
+                    System.out.println("|| Login anda berhasil ||");
+                    System.out.println("=======================");
+                    break;
+                }
+            }
+        
+            if (!login) {
+                System.out.println("Akun dan PIN yang Anda masukkan salah!");
+            }
+        } while (!login);
+        
+
         
         //INPUT
         System.out.print("Masukkan Nama\t\t: ");
@@ -204,7 +234,7 @@ public class BookingGedung {
             }else {
                 jenisGedung = "Coba lagi";
             }
-            
+
             //LAYANAN TAMBAHAN RAPAT
             String layananTambahanRapat [] = new String [4];
             System.out.println("Layanan Tambahan: ");
