@@ -209,14 +209,18 @@ public class BookingGedung {
             return;
                 
             }
-            
+
         //Acara rapat
         else if (acara.equalsIgnoreCase("rapat")){
             System.out.print("Tanggal Pelaksanaan Acara: ");
             input.nextLine();
             tanggalPelaksanaanRapat = input.nextLine();
 
-            System.out.print ("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu :  ");
+            System.out.println ("Jumlah Tamu Undangan: ");
+            System.out.println ("Gedung Aa = 10 - 20 ");
+            System.out.println ("Gedung Bb = 20 - 30 ");
+            System.out.println ("Gedung Cc = 30 - 50 ");
+            System.out.print ("Masukkan Jumlah Tamu :  ");
             jumlahTamu = input.nextInt();
 
             if (jumlahTamu <= 20){
