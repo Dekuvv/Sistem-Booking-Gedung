@@ -73,7 +73,7 @@ public class BookingGedung {
             jumlahTamu = input.nextInt();
             
             if (jumlahTamu <=200) {
-                    System.out.println("Anda akan menggunakan Gedung A");
+                System.out.println("Anda akan menggunakan Gedung A");
             }else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
                 System.out.println("Anda akan menggunakan Gedung B");
             }else if (300<= jumlahTamu && jumlahTamu <= 400) {
