@@ -208,29 +208,38 @@ public class BookingGedung {
             System.out.println("2. Minuman");
             System.out.println("3. LCD Proyektor");
             System.out.println("4. Kabel");
-            System.out.print("Pilih layanan tambahan anda: ");
-            int pilihan = input.nextInt();
-
-            switch (pilihan) {
-                case 1:
+            
+            char confirm;
+            do {
+                System.out.print("Pilih layanan tambahan anda: ");
+                int pilihan = input.nextInt();
+                switch (pilihan) {
+                    case 1:
                     layananTambahanRapat[0] = "Snack";
                     break;
-                case 2:
+                    case 2:
                     layananTambahanRapat[1] = "Minuman";
-                case 3:
+                    case 3:
                     layananTambahanRapat[2] = "LCD Proyektor";
-                case 4:
+                    case 4:
                     layananTambahanRapat[3] = "Kabel";
-                default:
+                    default:
                     System.out.println("Pilihan layanan tambahan tidak dapat diproses");
                     break;
-            }
-            System.out.print("Layanan Tambahan yang Anda Pilih: " );
-            for (String layanan : layananTambahanRapat) {
-                if (layanan != null) {
-                    System.out.println(layanan);
                 }
-            }
+                System.out.print("Layanan Tambahan yang Anda Pilih: " );
+                for (String layanan : layananTambahanRapat) {
+                    if (layanan != null) {
+                        System.out.println(layanan);
+                    }
+                }
+                System.out.println("Apakah Anda ingin Menambah Layanan Tambahan?");
+                System.out.println("Y (untuk Ya)\nT (untuk Tidak) : ");
+                confirm = input.next().charAt(0);
+                
+            } while (confirm == 'Y' || confirm == 'y');
+
+
             System.out.println("\n===================================================================");
             System.out.println("||                                                               ||");
             System.out.println("||                        TERIMAKASIH                            ||");
