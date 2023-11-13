@@ -9,7 +9,7 @@ public class BookingGedung {
         String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
 
-        String [][] akun = {{"Adit Bagus Sadewa"}, {"Muhammad Kemal Syahru Ramadhan"}, {"Dhevina Agustina"}};
+        String [][] akun = {{"Adit Bagus"}, {"Muhammad Kemal"}, {"Dhevina Agustina"}};
         int [][] password = {{23417601} , {23417602}, {23417603}};
 
         //Penampilan awal
@@ -31,11 +31,11 @@ public class BookingGedung {
             input.nextLine();
             
             for (int i = 0; i < akun.length; i++) {
-                if (username == akun[i][0] && pin == password[i][0]) {
+                if (username.equals(akun[i][0]) && pin == password[i][0]) {
                     login = true;
-                    System.out.println("=======================");
+                    System.out.println("=========================");
                     System.out.println("|| Login anda berhasil ||");
-                    System.out.println("=======================");
+                    System.out.println("=========================");
                     break;
                 }
             }
@@ -48,7 +48,7 @@ public class BookingGedung {
 
         
         //INPUT
-        System.out.print("Masukkan Nama\t\t: ");
+        System.out.print("Masukkan Nama Pemesan\t: ");
         identitasPemesan = input.nextLine();
 
         System.out.print("Masukkan Tanggal\t: ");
@@ -119,16 +119,21 @@ public class BookingGedung {
                     jmlLayananTambahan++;
                     cateringBoolean = true;
                     do {
-                        System.out.print("1. Paket A: makan    makan   makan \n2. Paket B: makan2    makan2    makan2\n3. Paket C: Makan3  makan3\nPilih nomor untuk paket catering: ");
+                        System.out.println("=========================================================================================");
+                        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
+                        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
+                        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
+                        System.out.println("=========================================================================================");
+                        System.out.print("Pilih nomor untuk paket catering: ");
                         pilihanMenu = input.next();
                             switch (pilihanMenu) {
-                                case "1" : menu [k] = "makan    makan   makan";
+                                case "1" : menu [k] = "Nasi Putih, Gurami telor Asin, Soup sosis, Pudding Coklat, Air Mineral ";
                                     k++;
                                     break;
-                                case "2" : menu [k] = "makan2   makan2    makan2";
+                                case "2" : menu [k] = "Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral";
                                     k++;
                                     break;
-                                case "3" : menu [k] = "Makan3  makan3";
+                                case "3" : menu [k] = "Nasi Putih, Ayam Teriyaki, Air Mineral";
                                     k++;
                                     break;
                                 default:
@@ -160,37 +165,44 @@ public class BookingGedung {
             boolean pemesananBerhasil = true;
             //OUTPUTTTT
             if (pemesananBerhasil) {
-                System.out.println("\n=======================================================================");
-                System.out.println("                          NOTA PEMESANAN                        ");
-                System.out.println("         Nama Pemesan\t\t\t: " + identitasPemesan);
-                System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
-                System.out.println("         Alamat Email Pemesan\t\t: " + alamatEmail);
-                System.out.println("         Tanggal Pemesanan\t\t: " + tanggalPemesanan);
-                System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara);
-                System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
-                System.out.println("         Jenis Gedung\t\t\t: " + jenisGedung);
+                System.out.println("\n=================================================================================");
+                System.out.println("                            NOTA PEMESANAN                        ");
+                System.out.println("           Nama Pemesan\t\t\t: " + identitasPemesan);
+                System.out.println("           Nomor Handphone Pemesan\t: " + nomorTelepon);
+                System.out.println("           Alamat Email Pemesan\t\t: " + alamatEmail);
+                System.out.println("           Tanggal Pemesanan\t\t: " + tanggalPemesanan);
+                System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara);
+                System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
+                System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung);
 
                 int i = 0, j = 1;
-                System.out.println("         Layanan Tambahan\t\t: " );
+                System.out.println("\t   Layanan Tambahan\t\t: " );
                 while (i < jmlLayananTambahan){
-                    System.out.println("         " + j + "." + " " + layananTambahan2[i] );
+                    System.out.println("\t   " + j + "." + " " + layananTambahan2[i] );
                     i++;
                     j++;
                 }
                 if (cateringBoolean = true){
-                    System.out.println("         Pesanan Catering: ");
+                    System.out.println("\t   Pesanan Catering: ");
                     for (int m = 0 ; m < l ; m++){
-                        System.out.println("          - " + menu [m]);
+                        System.out.println("\t   - " + menu [m]);
                     } 
                 }
                 
-                System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
-                System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
-                System.out.println("=======================================================================");
+                System.out.println("           Nomor Telepon\t\t: " + nomorTelepon);
+                System.out.println("           Alamat Email\t\t\t: " + alamatEmail);
+                System.out.println("=================================================================================");
             } else {
                 System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
             
-            }return;
+            }
+            System.out.println("\n===================================================================");
+            System.out.println("||                                                               ||");
+            System.out.println("||                        TERIMAKASIH                            ||");
+            System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+            System.out.println("||                                                               ||");
+            System.out.println("==================================================================="); 
+            return;
                 
             }
         //Acara rapat
@@ -221,7 +233,10 @@ public class BookingGedung {
             while (!(jumlahTamu <= 50)){
                 System.out.println("Tamu undangan anda melebihi kapasitas");
                 System.out.println("Silahkan coba lagi");
-                System.out.print("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20\n Gedung Bb = 20 - 30\n Gedung Cc = 30 - 50\n Masukkan Jumlah Tamu:  ");
+                System.out.print("Jumlah Tamu Undangan:\n Gedung Aa = 10 - 20  ");
+                System.out.print("Gedung Bb = 20 - 30  ");
+                System.out.print("Gedung Cc = 30 - 50  ");
+                System.out.print("Masukkan Jumlah Tamu  : ");
                 jumlahTamu = input.nextInt();
             }
             
@@ -244,18 +259,22 @@ public class BookingGedung {
             System.out.println("4. Kabel");
             char confirm;
             do {
-                System.out.print("Pilih layanan tambahan anda: ");
+                System.out.print("Pilih layanan tambahan anda : ");
                 int pilihan = input.nextInt();
                 switch (pilihan) {
                     case 1:
-                    layananTambahanRapat[0] = "Snack";
+                    layananTambahanRapat[0] = "Snack & Minuman";
                     break;
                     case 2:
-                    layananTambahanRapat[1] = "Minuman";
+                    layananTambahanRapat[1] = "Sound System";
+                    break;
                     case 3:
                     layananTambahanRapat[2] = "LCD Proyektor";
+                    break;
                     case 4:
-                    layananTambahanRapat[3] = "Kabel";
+                    layananTambahanRapat[3] = "Kursi";
+                    break;
+
                     default:
                     System.out.println("Pilihan layanan tambahan tidak dapat diproses");
                     break;
@@ -275,7 +294,7 @@ public class BookingGedung {
             //NOTA PEMESANAN RAPAT
             boolean pemesananBerhasil = true;
             if (pemesananBerhasil){
-                 System.out.println("\n=======================================================================");
+                System.out.println("\n=======================================================================");
                 System.out.println("                          NOTA PEMESANAN                        ");
                 System.out.println("         Nama Pemesan\t\t\t: " + identitasPemesan);
                 System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
