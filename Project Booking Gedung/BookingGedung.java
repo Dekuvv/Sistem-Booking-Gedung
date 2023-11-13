@@ -65,7 +65,7 @@ public class BookingGedung {
             input.nextLine();
             tanggalPelaksanaanAcara = input.nextLine();
             
-            System.out.println("Jumlah Tamu Undangan: ");
+            System.out.println("Jumlah Tamu Undangan:  ");
             System.out.println("Gedung A = 100 - 200 ");
             System.out.println("Gedung B = 200 - 300 ");
             System.out.println("Gedung C = 300 - 400 ");
@@ -73,7 +73,7 @@ public class BookingGedung {
             jumlahTamu = input.nextInt();
             
             if (jumlahTamu <=200) {
-                System.out.println("Anda akan menggunakan Gedung A");
+                    System.out.println("Anda akan menggunakan Gedung A");
             }else if (200 <= jumlahTamu && jumlahTamu <=300 ) {
                 System.out.println("Anda akan menggunakan Gedung B");
             }else if (300<= jumlahTamu && jumlahTamu <= 400) {
@@ -91,7 +91,11 @@ public class BookingGedung {
             while (!(jumlahTamu <= 400)){
                 System.out.println("Tamu undangan anda melebihi kapasitas");
                 System.out.println("Silahkan coba lagi");
-                System.out.print("Jumlah Tamu Undangan:\n Gedung A = 100 - 200\n Gedung B = 200 - 300\n Gedung C = 300 - 400\n Masukkan Jumlah Tamu:  ");
+                System.out.println("Jumlah Tamu Undangan: ");
+                System.out.println("Gedung A = 100 - 200 ");
+                System.out.println("Gedung B = 200 - 300 ");
+                System.out.println("Gedung C = 300 - 400 ");
+                System.out.print("Masukkan Jumlah Tamu: ");
                 jumlahTamu = input.nextInt();
             }
             
