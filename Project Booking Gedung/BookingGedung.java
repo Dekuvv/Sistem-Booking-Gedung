@@ -56,7 +56,7 @@ public class BookingGedung {
         input.nextLine();
         System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
-        
+
         //Acara pernikahan
         if (acara.equalsIgnoreCase("pernikahan")) 
         {
@@ -106,6 +106,7 @@ public class BookingGedung {
             int k = 0, l = 0;
             boolean cateringBoolean = false;
             int jmlLayananTambahan = 0;
+
             do{
                 System.out.println("Layanan Tambahan : ");
                 System.out.println("1. Catering");
@@ -115,6 +116,7 @@ public class BookingGedung {
                 System.out.println("5. Musik dan Hiburan");
                 System.out.print("Masukkan nomor layanan tambahan yang anda pilih : ");
                 layananTambahan = input.next();
+
                 if (layananTambahan.equals("1")){
                     layananTambahan2[jmlLayananTambahan] = "Catering";
                     jmlLayananTambahan++;
@@ -144,6 +146,7 @@ public class BookingGedung {
                         confirmCatering = input.next();
                         l++;
                     }while (confirmCatering.equalsIgnoreCase("y"));
+
                 }if (layananTambahan.equals("2")){
                     layananTambahan2[jmlLayananTambahan] = "MC";
                     jmlLayananTambahan++;
@@ -206,6 +209,7 @@ public class BookingGedung {
             return;
                 
             }
+            
         //Acara rapat
         else if (acara.equalsIgnoreCase("rapat")){
             System.out.print("Tanggal Pelaksanaan Acara: ");
