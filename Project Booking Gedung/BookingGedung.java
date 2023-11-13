@@ -10,7 +10,7 @@ public class BookingGedung {
         int jumlahTamu, tanggalPemesanan;
 
         String [][] akun = {{"Adit Bagus Sadewa"}, {"Muhammad Kemal Syahru Ramadhan"}, {"Dhevina Agustina"}};
-        int [][] password = {{23417601} , {23417602}, {23417603}};
+        String [][] password = {{"2341760149"} , {"2341760196"}, {"2341760065"}};
 
         //Penampilan awal
         System.out.println("===================================================================");
@@ -27,11 +27,11 @@ public class BookingGedung {
             System.out.print("Masukkan Akun Anda\t: ");
             String username = input.nextLine();
             System.out.print("Masukkan PIN Anda\t: ");
-            int pin = input.nextInt();
-            input.nextLine();
+            String pin = input.nextLine();
             
             for (int i = 0; i < akun.length; i++) {
-                if (username == akun[i][0] && pin == password[i][0]) {
+                for (int j = 0; j < akun[i].length; j++)
+                if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
                     login = true;
                     System.out.println("=======================");
                     System.out.println("|| Login anda berhasil ||");
