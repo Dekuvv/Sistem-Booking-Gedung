@@ -190,14 +190,14 @@ public class BookingGedung {
                 int i = 0, j = 1;
                 System.out.println("\t   Layanan Tambahan\t\t: " );
                 while (i < jmlLayananTambahan){
-                    System.out.println("\t   " + j + "." + " " + layananTambahan2[i] );
+                    System.out.println("\t     " + j + "." + " " + layananTambahan2[i] );
                     i++;
                     j++;
                 }
                 if (cateringBoolean = true){
-                    System.out.println("\t   Pesanan Catering: ");
+                    System.out.println("\t     Pesanan Catering: ");
                     for (int m = 0 ; m < l ; m++){
-                        System.out.println("\t   - " + menu [m]);
+                        System.out.println("\t     - " + menu [m]);
                     } 
                 }
                 
@@ -275,21 +275,26 @@ public class BookingGedung {
             System.out.println("3. LCD Proyektor");
             System.out.println("4. Kursi");
             char confirm;
+            int g = 0;
             do {
                 System.out.print("Pilih layanan tambahan anda : ");
                 int pilihan = input.nextInt();
                 switch (pilihan) {
                     case 1:
-                    layananTambahanRapat[0] = "Snack & Minuman";
+                    layananTambahanRapat[g] = "Snack & Minuman";
+                    g++;
                     break;
                     case 2:
-                    layananTambahanRapat[1] = "Sound System";
+                    layananTambahanRapat[g] = "Sound System";
+                    g++;
                     break;
                     case 3:
-                    layananTambahanRapat[2] = "LCD Proyektor";
+                    layananTambahanRapat[g] = "LCD Proyektor";
+                    g++;
                     break;
                     case 4:
-                    layananTambahanRapat[3] = "Kursi";
+                    layananTambahanRapat[g] = "Kursi";
+                    g++;
                     break;
 
                     default:
@@ -320,7 +325,10 @@ public class BookingGedung {
                 System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat);
                 System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                 System.out.println("         Jenis Gedung\t\t\t: " + jenisGedung);
-                System.out.println("         Layanan Tambahan\t\t: " + Arrays.toString(layananTambahanRapat));
+                System.out.println("\t Layanan Tambahan\t\t: ");
+                for (int i = 0 ; i < g ; i++){
+                    System.out.println("\t   " + (i+1) + ". " +layananTambahanRapat [i]);
+                }
                 System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
                 System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
                 System.out.println("=======================================================================");
