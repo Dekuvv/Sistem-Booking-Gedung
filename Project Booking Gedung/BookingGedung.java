@@ -367,7 +367,7 @@ public class BookingGedung {
                     if (gedungNikah [i] != null){
                         System.out.println(gedungNikah [i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanAcara[i]);
                     }if (ruangRapat [i] != null){
-                        System.out.println(ruangRapat [i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanRapat);
+                        System.out.println(ruangRapat [i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanRapat[i]);
                     }
                 }
                 if(gedungNikah[0] == null && gedungNikah[1] == null && gedungNikah[2] == null){
