@@ -9,7 +9,7 @@ public class BookingGedung {
         String layananTambahan2 []  = new String[5];
         int jumlahTamu, tanggalPemesanan;
 
-        String [][] akun = {{"Adit Bagus Sadewa"}, {"Muhammad Kemal Syahru Ramadhan"}, {"Dhevina Agustina"}};
+        String [][] akun = {{"Adit"}, {"Kemal"}, {"Dhevina"}};
         String [][] password = {{"2341760149"} , {"2341760196"}, {"2341760065"}};
 
         //Penampilan awal
