@@ -196,7 +196,7 @@ public class BookingGedung {
                         System.out.println("           Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("           Alamat Email Pemesan\t\t: " + alamatEmail);
                         System.out.println("           Tanggal Pemesanan\t\t: " + tanggalPemesanan);
-                        System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara);
+                        System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a-1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung);
 
@@ -227,7 +227,7 @@ public class BookingGedung {
                     System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
                     System.out.println("||                                                               ||");
                     System.out.println("==================================================================="); 
-                    return;
+
 
                 //Acara rapat
                 }else if (acara.equalsIgnoreCase("rapat")){
@@ -338,7 +338,7 @@ public class BookingGedung {
                         System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("         Alamat Email Pemesan\t\t: " + alamatEmail);
                         System.out.println("         Tanggal Pemesanan\t\t: " + tanggalPemesanan);
-                        System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat);
+                        System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat[b-1]);
                         System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("         Jenis Ruangan\t\t\t: " + jenisRuang);
                         System.out.println("\t Layanan Tambahan\t\t: ");
@@ -360,7 +360,7 @@ public class BookingGedung {
                     System.out.println("||                                                               ||");
                     System.out.println("==================================================================="); 
                     //CLOSING SCANNER
-                    input.close();
+                    
                 }
             }else if (pilihanmenu == 1){
                 for (int i = 0 ; i < gedungNikah.length ; i++){
@@ -372,9 +372,9 @@ public class BookingGedung {
                 }
                 if(gedungNikah[0] == null && gedungNikah[1] == null && gedungNikah[2] == null){
                     System.out.println("SEMUA GEDUNG UNTUK PERNIKAHAN KOSONG");
-                }if (ruangRapat [0] == null && ruangRapat [1] == null && ruangRapat [2] == null){
-                    System.out.println("SEMUA RUANGAN UNTUK RAPAT KOSONG");
-                }
+                    }if (ruangRapat [0] == null && ruangRapat [1] == null && ruangRapat [2] == null){
+                        System.out.println("SEMUA RUANGAN UNTUK RAPAT KOSONG");
+                    }
             }
         System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
         input.nextLine();
