@@ -5,9 +5,9 @@ public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, jenisRuang, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
+        String identitasPemesan, jenisGedung, jenisRuang, tanggalPelaksanaanAcara , tanggalPelaksanaanRapat,tanggalPemesanan, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 []  = new String[5];
-        int jumlahTamu, tanggalPemesanan;
+        int jumlahTamu;
         String [][] akun = {{"Adit"}, {"Kemal"}, {"Dhevina"}};
         String [][] password = {{"2341760149"} , {"2341760196"}, {"2341760065"}};
 
@@ -49,10 +49,8 @@ public class BookingGedung {
         //INPUT
         System.out.print("Masukkan Nama Pemesan\t: ");
         identitasPemesan = input.nextLine();
-
         System.out.print("Masukkan Tanggal\t: ");
-        tanggalPemesanan = input.nextInt();
-        input.nextLine();
+        tanggalPemesanan = input.nextLine();
         System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
         acara = input.next();
 
@@ -300,7 +298,7 @@ public class BookingGedung {
                     System.out.println("Pilihan layanan tambahan tidak dapat diproses");
                     break;
                 }
-                System.out.print("Layanan Tambahan yang Anda Pilih: " );
+                System.out.println("Layanan Tambahan yang Anda Pilih: " );
                 for (String layanan : layananTambahanRapat) {
                     if (layanan != null) {
                         System.out.println(layanan);
