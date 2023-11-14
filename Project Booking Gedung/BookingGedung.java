@@ -380,5 +380,11 @@ public class BookingGedung {
         input.nextLine();
         confirmMenu = input.nextLine();
         }while (confirmMenu.equalsIgnoreCase("y"));
+                    System.out.println("\n===================================================================");
+                    System.out.println("||                                                               ||");
+                    System.out.println("||                        TERIMAKASIH                            ||");
+                    System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+                    System.out.println("||                                                               ||");
+                    System.out.println("==================================================================="); 
     }
 }
