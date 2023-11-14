@@ -270,10 +270,10 @@ public class BookingGedung {
             //LAYANAN TAMBAHAN RAPAT
             String layananTambahanRapat [] = new String [4];
             System.out.println("Layanan Tambahan: ");
-            System.out.println("1. Snack ");
-            System.out.println("2. Minuman");
+            System.out.println("1. Snack & Minuman");
+            System.out.println("2. Sound System");
             System.out.println("3. LCD Proyektor");
-            System.out.println("4. Kabel");
+            System.out.println("4. Kursi");
             char confirm;
             do {
                 System.out.print("Pilih layanan tambahan anda : ");
