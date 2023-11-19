@@ -1,11 +1,14 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalDateTime;  
+import java.time.format.DateTimeFormatter;  
 
 public class BookingGedung {
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
-        String identitasPemesan, jenisGedung, jenisRuang,tanggalPemesanan, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
+        String identitasPemesan, jenisGedung, jenisRuang, layananTambahan, nomorTelepon,alamatEmail, konfirmasi, acara;
         String layananTambahan2 []  = new String[5];
         String tanggalPelaksanaanAcara[] = new String[3];
         String tanggalPelaksanaanRapat [] = new String[3];
@@ -14,6 +17,9 @@ public class BookingGedung {
         int jumlahTamu;
         String [][] akun = {{"Adit"}, {"Kemal"}, {"Dhevina"}};
         String [][] password = {{"2341760149"} , {"2341760196"}, {"2341760065"}};
+        LocalDateTime tanggalPemesanan = LocalDateTime.now();  
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
+        String formattanggalPemesanan = tanggalPemesanan.format(format);  
 
         //Penampilan awal
         System.out.println("===================================================================");
@@ -60,11 +66,9 @@ public class BookingGedung {
                 System.out.print("Masukkan Nama Pemesan\t: ");
                 input.nextLine();
                 identitasPemesan = input.nextLine();
-                System.out.print("Masukkan Tanggal\t: ");
-                tanggalPemesanan = input.nextLine();
+
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                 acara = input.next();
-
                 //Acara pernikahan
                 if (acara.equalsIgnoreCase("pernikahan")) 
                 {
@@ -195,7 +199,7 @@ public class BookingGedung {
                         System.out.println("           Nama Pemesan\t\t\t: " + identitasPemesan);
                         System.out.println("           Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("           Alamat Email Pemesan\t\t: " + alamatEmail);
-                        System.out.println("           Tanggal Pemesanan\t\t: " + tanggalPemesanan);
+                        System.out.println("           Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a-1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung);
@@ -337,7 +341,7 @@ public class BookingGedung {
                         System.out.println("         Nama Pemesan\t\t\t: " + identitasPemesan);
                         System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("         Alamat Email Pemesan\t\t: " + alamatEmail);
-                        System.out.println("         Tanggal Pemesanan\t\t: " + tanggalPemesanan);
+                        System.out.println("         Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat[b-1]);
                         System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("         Jenis Ruangan\t\t\t: " + jenisRuang);
