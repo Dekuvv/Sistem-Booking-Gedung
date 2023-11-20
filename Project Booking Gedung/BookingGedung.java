@@ -29,8 +29,18 @@ public class BookingGedung {
         System.out.println("===================================================================");
     
         //lOGIN
-        boolean login = false;
+        do{
+            System.out.println("===================");
+            System.out.println("||   MENU LOGIN  ||");
+            System.out.println("===================");
+            System.out.println("|| 1. Admin      ||");
+            System.out.println("|| 2. Pelanggan  ||");
+            System.out.println("|| 3. MAster     ||");
+            System.out.println("===================");
 
+        }while();
+
+        boolean login = false;
         do {
             System.out.print("Masukkan Akun Anda\t: ");
             String username = input.nextLine();
