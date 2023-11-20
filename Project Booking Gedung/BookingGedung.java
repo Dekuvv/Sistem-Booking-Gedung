@@ -218,15 +218,9 @@ public class BookingGedung {
                         System.out.println("=================================================================================");
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
-                    
+                        
                     }
-                    System.out.println("\n===================================================================");
-                    System.out.println("||                                                               ||");
-                    System.out.println("||                        TERIMAKASIH                            ||");
-                    System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
-                    System.out.println("||                                                               ||");
-                    System.out.println("==================================================================="); 
-
+                    tampilanClosing();
 
                 //Acara rapat
                 }else if (acara.equalsIgnoreCase("rapat")){
@@ -350,14 +344,8 @@ public class BookingGedung {
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
                     }
-                
-
-                    System.out.println("\n===================================================================");
-                    System.out.println("||                                                               ||");
-                    System.out.println("||                        TERIMAKASIH                            ||");
-                    System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
-                    System.out.println("||                                                               ||");
-                    System.out.println("==================================================================="); 
+        
+                   tampilanClosing();
                     //CLOSING SCANNER
                     
                 }
@@ -392,6 +380,15 @@ public class BookingGedung {
         System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
         System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
         System.out.println("=========================================================================================");
+    }
+    static void tampilanClosing(){
+        System.out.println("\n===================================================================");
+        System.out.println("||                                                               ||");
+        System.out.println("||                        TERIMAKASIH                            ||");
+        System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+        System.out.println("||                                                               ||");
+        System.out.println("==================================================================="); 
+
     }
     
 }
