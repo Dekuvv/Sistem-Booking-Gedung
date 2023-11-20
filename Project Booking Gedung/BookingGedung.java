@@ -146,11 +146,7 @@ public class BookingGedung {
                             jmlLayananTambahan++;
                             cateringBoolean = true;
                             do {
-                                System.out.println("=========================================================================================");
-                                System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
-                                System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
-                                System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
-                                System.out.println("=========================================================================================");
+                                menuCatering();
                                 System.out.print("Pilih nomor untuk paket catering: ");
                                 pilihanMenu = input.next();
                                     switch (pilihanMenu) {
@@ -390,4 +386,12 @@ public class BookingGedung {
                     System.out.println("||                                                               ||");
                     System.out.println("==================================================================="); 
     }
+    static void menuCatering(){
+        System.out.println("=========================================================================================");
+        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
+        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
+        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
+        System.out.println("=========================================================================================");
+    }
+    
 }
