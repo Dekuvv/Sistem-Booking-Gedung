@@ -29,39 +29,47 @@ public class BookingGedung {
         System.out.println("===================================================================");
     
         //lOGIN
+        String pilihanLogin;
         do{
-            System.out.println("===================");
-            System.out.println("||   MENU LOGIN  ||");
-            System.out.println("===================");
-            System.out.println("|| 1. Admin      ||");
-            System.out.println("|| 2. Pelanggan  ||");
-            System.out.println("|| 3. MAster     ||");
-            System.out.println("===================");
+            System.out.println("====================");
+            System.out.println("||   MENU LOGIN   ||");
+            System.out.println("====================");
+            System.out.println("|| 1. Admin       ||");
+            System.out.println("|| 2. Pelanggan   ||");
+            System.out.println("====================");
+            System.out.println("--------------------");
+            System.out.println("Masukkan pilihan anda");
+            System.out.println("--------------------");
+            pilihanLogin = input.nextLine();
+
+            if (pilihanLogin.equalsIgnoreCase("1. Admin")){
+                boolean login = false;
+                do {
+                    System.out.print("Masukkan Akun Anda\t: ");
+                    String username = input.nextLine();
+                    System.out.print("Masukkan PIN Anda\t: ");
+                    String pin = input.nextLine();
+                    
+                    for (int i = 0; i < akun.length; i++) {
+                        for (int j = 0; j < akun[i].length; j++)
+                        if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
+                            login = true;
+                            System.out.println("=========================");
+                            System.out.println("|| Login anda berhasil ||");
+                            System.out.println("=========================");
+                            break;
+                        }
+                    }
+                
+                    if (!login) {
+                        System.out.println("Akun dan PIN yang Anda masukkan salah!");
+                    }
+                } while (!login);
+            } else if (pilihanLogin.equalsIgnoreCase("2. Pelanggan"))
+                
 
         }while();
 
-        boolean login = false;
-        do {
-            System.out.print("Masukkan Akun Anda\t: ");
-            String username = input.nextLine();
-            System.out.print("Masukkan PIN Anda\t: ");
-            String pin = input.nextLine();
-            
-            for (int i = 0; i < akun.length; i++) {
-                for (int j = 0; j < akun[i].length; j++)
-                if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
-                    login = true;
-                    System.out.println("=========================");
-                    System.out.println("|| Login anda berhasil ||");
-                    System.out.println("=========================");
-                    break;
-                }
-            }
-        
-            if (!login) {
-                System.out.println("Akun dan PIN yang Anda masukkan salah!");
-            }
-        } while (!login);
 
         String confirmMenu;
         do{
