@@ -4,6 +4,22 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;  
 
 public class BookingGedung {
+    static void tampilanClosing(){
+        System.out.println("\n===================================================================");
+        System.out.println("||                                                               ||");
+        System.out.println("||                        TERIMAKASIH                            ||");
+        System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
+        System.out.println("||                                                               ||");
+        System.out.println("==================================================================="); 
+
+    }
+     static void menuCatering(){
+        System.out.println("=========================================================================================");
+        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
+        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
+        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
+        System.out.println("=========================================================================================");
+    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
@@ -384,25 +400,10 @@ public class BookingGedung {
         System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
         input.nextLine();
         confirmMenu = input.nextLine();
-        }while (confirmMenu.equalsIgnoreCase("y"));
-        tampilanClosing();
-                   
+    }while (confirmMenu.equalsIgnoreCase("y")); 
+    tampilanClosing();
+        
     }
-    static void menuCatering(){
-        System.out.println("=========================================================================================");
-        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
-        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
-        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
-        System.out.println("=========================================================================================");
-    }
-    static void tampilanClosing(){
-        System.out.println("\n===================================================================");
-        System.out.println("||                                                               ||");
-        System.out.println("||                        TERIMAKASIH                            ||");
-        System.out.println("||                   SUDAH MEMESAN LAYANAN KAMI                  ||");
-        System.out.println("||                                                               ||");
-        System.out.println("==================================================================="); 
-
-    }
+   
     
 }
