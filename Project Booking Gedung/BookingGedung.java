@@ -26,13 +26,13 @@ public class BookingGedung {
     static String jenisRuang;
     static String ruangRapat[] = new String[3];
     static String nomorTelepon, alamatEmail;
+    static String gedungNikah[] = new String[3];
+    static String tanggalPelaksanaanAcara[] = new String[3];
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String identitasPemesan, layananTambahan, konfirmasi, acara;
         String layananTambahan2[] = new String[5];
-        String tanggalPelaksanaanAcara[] = new String[3];
-        String gedungNikah[] = new String[3];
         String[][] akun = {{"Adit"}, {"Kemal"}, {"Dhevina"}};
         String[][] password = {{"2341760149"}, {"2341760196"}, {"2341760065"}};
         LocalDateTime tanggalPemesanan = LocalDateTime.now();
@@ -61,31 +61,11 @@ public class BookingGedung {
         pilihanLogin = input.nextLine();
 
         if (pilihanLogin.equalsIgnoreCase("Admin")) {
-            boolean login = false;
-            do {
-                System.out.print("Masukkan Akun Anda\t: ");
-                String username = input.nextLine();
-                System.out.print("Masukkan PIN Anda\t: ");
-                String pin = input.nextLine();
-
-                for (int i = 0; i < akun.length; i++) {
-                    for (int j = 0; j < akun[i].length; j++)
-                        if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
-                            login = true;
-                            System.out.println("=========================");
-                            System.out.println("|| Login anda berhasil ||");
-                            System.out.println("=========================");
-                            break;
-                        }
-                }
-
-                if (!login) {
-                    System.out.println("Akun dan PIN yang Anda masukkan salah!");
-                }
-            } while (!login);
+            adminLogin(akun, password);
+        } else if (pilihanLogin.equalsIgnoreCase("Pelanggan")) {
+            userMenu();
         } else {
             System.out.println("Pilihan tidak valid. Silahkan pilih Admin atau Pelanggan.");
-
         }
 
 
@@ -97,6 +77,7 @@ public class BookingGedung {
             System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
             //INPUT
+            
             if (pilihanmenu == 2) {
                 System.out.print("Masukkan Nama Pemesan\t: ");
                 input.nextLine();
@@ -426,5 +407,73 @@ public class BookingGedung {
         } else {
             jenisRuang = "Coba lagi";
         }
+    }
+    private static void adminLogin(String[][] akun, String[][] password) {
+        boolean login = false;
+        Scanner input = new Scanner(System.in);
+
+        do {
+            System.out.print("Masukkan Akun Anda\t: ");
+            String username = input.nextLine();
+            System.out.print("Masukkan PIN Anda\t: ");
+            String pin = input.nextLine();
+
+            for (int i = 0; i < akun.length; i++) {
+                for (int j = 0; j < akun[i].length; j++)
+                    if (username.equals(akun[i][j]) && pin.equals(password[i][j])) {
+                        login = true;
+                        System.out.println("=========================");
+                        System.out.println("|| Login anda berhasil ||");
+                        System.out.println("=========================");
+                        adminMenu();
+                        break;
+                    }
+            }
+
+            if (!login) {
+                System.out.println("Akun dan PIN yang Anda masukkan salah!");
+            }
+        } while (!login);
+    }
+
+    private static void adminMenu() {
+        Scanner input = new Scanner(System.in);
+        String confirmMenu;
+
+        do {
+            System.out.println("------------------");
+            System.out.println("   Menu Admin");
+            System.out.println("------------------");
+            System.out.print("1. Lihat Gedung yang Terpesan\n2. Keluar\nMasukkan Angka dari menu: ");
+            int pilihanmenu = input.nextInt();
+
+            if (pilihanmenu == 1) {
+                displayBookedVenues();
+            } else if (pilihanmenu == 2) {
+                break;
+            }
+
+            System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
+            input.nextLine();
+            confirmMenu = input.nextLine();
+        } while (confirmMenu.equalsIgnoreCase("y"));
+    }
+    private static void displayBookedVenues() {
+        System.out.println("========== Booked Venues ==========");
+        
+        for (int i = 0; i < gedungNikah.length; i++) {
+            if (gedungNikah[i] != null) {
+                System.out.println(gedungNikah[i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanAcara[i]);
+            }
+        }
+    
+        for (int i = 0; i < ruangRapat.length; i++) {
+            if (ruangRapat[i] != null) {
+                System.out.println(ruangRapat[i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanRapat[i]);
+            }
+        }
+    
+        System.out.println("===================================");
+        
     }
 }
