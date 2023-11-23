@@ -28,6 +28,15 @@ public class BookingGedung {
     static String nomorTelepon, alamatEmail;
     static String gedungNikah[] = new String[3];
     static String tanggalPelaksanaanAcara[] = new String[3];
+    
+    static void PenampilanAwal(){
+        System.out.println("===================================================================");
+    System.out.println("||                                                               ||");
+    System.out.println("||                       SELAMAT DATANG                          ||");
+    System.out.println("||                      DI HOTEL DE'LOBBY                        ||");
+    System.out.println("||                                                               ||");
+    System.out.println("===================================================================");
+    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -38,14 +47,9 @@ public class BookingGedung {
         LocalDateTime tanggalPemesanan = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String formattanggalPemesanan = tanggalPemesanan.format(format);
-
+        
         //Penampilan awal
-        System.out.println("===================================================================");
-        System.out.println("||                                                               ||");
-        System.out.println("||                       SELAMAT DATANG                          ||");
-        System.out.println("||                      DI HOTEL DE'LOBBY                        ||");
-        System.out.println("||                                                               ||");
-        System.out.println("===================================================================");
+        PenampilanAwal();
 
         //lOGIN
         String pilihanLogin;
@@ -67,7 +71,6 @@ public class BookingGedung {
         } else {
             System.out.println("Pilihan tidak valid. Silahkan pilih Admin atau Pelanggan.");
         }
-
 
         String confirmMenu;
         do {
