@@ -6,11 +6,11 @@ public class BookingGedung {
     // Admin ID and Password
     static final String ADMIN_ID = "admin";
     static final String ADMIN_PASSWORD = "admin123";
+
     static void adminLogin(String[][] akun, String[][] password) {
         Scanner input = new Scanner(System.in);
         boolean login = false;
         int attemptCount = 0;
-
         do {
             System.out.print("Masukkan ID Admin\t: ");
             String adminIdInput = input.nextLine();
@@ -140,6 +140,8 @@ public class BookingGedung {
         PenampilanAwal();
 
         //lOGIN
+        String backToMenu;
+        do {
         boolean menuLogin = true;
         String pilihanLogin;
         System.out.println("====================");
@@ -160,16 +162,13 @@ public class BookingGedung {
         } else {
             System.out.println("Pilihan tidak valid. Silahkan pilih Admin atau Pelanggan.");
         }
-        String backToMenu;
-        do {
+        
 
             System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
             backToMenu = input.nextLine();
 
-            if (backToMenu.equals("y")){
-                adminLogin(akun, password);
-            }
-        } while (backToMenu.equalsIgnoreCase("t"));
+
+        } while (backToMenu.equalsIgnoreCase("y"));
 
         tampilanClosing();
     }
@@ -252,16 +251,13 @@ public class BookingGedung {
         }
     }
 
-    private static void menu(
-            String[] layananTambahan2,
-            String formattanggalPemesanan
-    ){
+    private static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         do {
             System.out.println("========================");
             System.out.println("||   Menu Pelanggan   ||");
             System.out.println("========================");
-            System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\nMasukkan Angka dari menu: ");
+            System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\n3. Exit\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
             //INPUT
 
@@ -493,8 +489,7 @@ public class BookingGedung {
                     //CLOSING SCANNER
 
                 }
-            }
-            if (pilihanmenu == 1) {
+            }else if (pilihanmenu == 1) {
                 for (int i = 0; i < gedungNikah.length; i++) {
                     if (gedungNikah[i] != null) {
                         System.out.println(gedungNikah[i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanAcara[i]);
@@ -509,6 +504,8 @@ public class BookingGedung {
                 if (ruangRapat[0] == null && ruangRapat[1] == null && ruangRapat[2] == null) {
                     System.out.println("SEMUA RUANGAN UNTUK RAPAT KOSONG");
                 }
+            }else if (pilihanmenu == 3){
+                return;
             }
             System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
             input.nextLine();
