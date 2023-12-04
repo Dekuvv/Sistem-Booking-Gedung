@@ -3,6 +3,52 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class BookingGedung {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String layananTambahan2[] = new String[5];
+        String[][] akun = {};
+        String[][] password = {};
+        LocalDateTime tanggalPemesanan = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattanggalPemesanan = tanggalPemesanan.format(format);
+
+        //Penampilan awal
+        PenampilanAwal();
+
+        //lOGIN
+        String backToMenu;
+        do {
+        boolean menuLogin = true;
+        String pilihanLogin;
+        System.out.println("====================");
+        System.out.println("||   MENU LOGIN   ||");
+        System.out.println("====================");
+        System.out.println("|| 1. Admin       ||");
+        System.out.println("|| 2. Pelanggan   ||");
+        System.out.println("====================");
+        System.out.println("--------------------");
+        System.out.println("Masukkan pilihan anda");
+        System.out.println("--------------------");
+        pilihanLogin = input.nextLine();
+
+        if (pilihanLogin.equalsIgnoreCase("Admin")) {
+            adminLogin(akun, password);
+        } else if (pilihanLogin.equalsIgnoreCase("Pelanggan")) {
+            menu(layananTambahan2, formattanggalPemesanan);;
+        } else {
+            System.out.println("Pilihan tidak valid. Silahkan pilih Admin atau Pelanggan.");
+        }
+        
+
+            System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
+            backToMenu = input.nextLine();
+
+
+        } while (backToMenu.equalsIgnoreCase("y"));
+
+        tampilanClosing();
+    }
+    
     // Admin ID and Password
     static final String ADMIN_ID = "admin";
     static final String ADMIN_PASSWORD = "admin123";
@@ -59,65 +105,7 @@ public class BookingGedung {
 
         System.out.println("===================================");
     }
-    static void handleBooking() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Masukkan Nama Pemesan\t: ");
-        input.nextLine(); //newline character
-        String identitasPemesan = input.next();
-        input.nextLine();
-
-        System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
-        String acara = input.next();
-
-        // Acara pernikahan
-        if (acara.equalsIgnoreCase("pernikahan")) {
-
-            System.out.println("Jenis Gedung\t\t\t: " + jenisGedung);
-
-            // Check venue tersedia
-            int venueIndex = -1;
-            if (jenisGedung.equals("Gedung A")) {
-                venueIndex = 0;
-            } else if (jenisGedung.equals("Gedung B")) {
-                venueIndex = 1;
-            } else if (jenisGedung.equals("Gedung C")) {
-                venueIndex = 2;
-            }
-
-            if (venueIndex != -1 && gedungNikahAvailable[venueIndex]) {
-                gedungNikahAvailable[venueIndex] = false; // Menandai venue yang sudah dibooking
-
-            } else {
-                System.out.println("Gedung sudah dipesan untuk tanggal " + tanggalPelaksanaanAcara[venueIndex]);
-                return; // Exit booking process
-            }
-        }
-        else if (acara.equalsIgnoreCase("rapat")) {
-
-
-            System.out.println("Jenis Ruangan\t\t\t: " + jenisRuang);
-
-            // Check venue 
-            int venueIndex = -1;
-            if (jenisRuang.equals("Ruangan A")) {
-                venueIndex = 0;
-            } else if (jenisRuang.equals("Ruangan B")) {
-                venueIndex = 1;
-            } else if (jenisRuang.equals("Ruangan C")) {
-                venueIndex = 2;
-            }
-
-            if (venueIndex != -1 && ruangRapatAvailable[venueIndex]) {
-                ruangRapatAvailable[venueIndex] = false; // menandai venue yang terbooking
-
-            } else {
-                System.out.println("Ruangan sudah dipesan untuk tanggal " + tanggalPelaksanaanRapat[venueIndex]);
-                return; // Exit booking process
-            }
-        }
-    }
-
+   
     static int jumlahTamu;
     static String jenisRuang;
     static String tanggalPelaksanaanAcara[] = new String[5];
@@ -125,54 +113,6 @@ public class BookingGedung {
     static String ruangRapat[] = new String[5];
     static String gedungNikah[] = new String[5];
     static String nomorTelepon, alamatEmail;
-
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String layananTambahan2[] = new String[5];
-        String[][] akun = {};
-        String[][] password = {};
-        LocalDateTime tanggalPemesanan = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String formattanggalPemesanan = tanggalPemesanan.format(format);
-
-        //Penampilan awal
-        PenampilanAwal();
-
-        //lOGIN
-        String backToMenu;
-        do {
-        boolean menuLogin = true;
-        String pilihanLogin;
-        System.out.println("====================");
-        System.out.println("||   MENU LOGIN   ||");
-        System.out.println("====================");
-        System.out.println("|| 1. Admin       ||");
-        System.out.println("|| 2. Pelanggan   ||");
-        System.out.println("====================");
-        System.out.println("--------------------");
-        System.out.println("Masukkan pilihan anda");
-        System.out.println("--------------------");
-        pilihanLogin = input.nextLine();
-
-        if (pilihanLogin.equalsIgnoreCase("Admin")) {
-            adminLogin(akun, password);
-        } else if (pilihanLogin.equalsIgnoreCase("Pelanggan")) {
-            menu(layananTambahan2, formattanggalPemesanan);;
-        } else {
-            System.out.println("Pilihan tidak valid. Silahkan pilih Admin atau Pelanggan.");
-        }
-        
-
-            System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
-            backToMenu = input.nextLine();
-
-
-        } while (backToMenu.equalsIgnoreCase("y"));
-
-        tampilanClosing();
-    }
-
     static String jenisGedung;
     static Scanner input = new Scanner(System.in);
 
