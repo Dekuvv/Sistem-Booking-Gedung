@@ -462,7 +462,7 @@ public class BookingGedung {
 
                     } while (confirm == 'Y' || confirm == 'y');
 
-                    //NOTA PEMESANAN RAPAT
+                    //NOTA PEMESANAN RAPATT
                     boolean pemesananBerhasil = true;
                     if (pemesananBerhasil) {
                         System.out.println("\n=======================================================================");
