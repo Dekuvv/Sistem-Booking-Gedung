@@ -108,6 +108,7 @@ public class BookingGedung {
    
     static int jumlahTamu;
     static String jenisRuang;
+    static int HargaRuang;
     static String tanggalPelaksanaanAcara[] = new String[5];
     static String tanggalPelaksanaanRapat[] = new String[5];
     static String ruangRapat[] = new String[5];
@@ -142,12 +143,13 @@ public class BookingGedung {
 
     }
     //fungsi untuk pemesanan Rapat
+    static int totalHargaRapat = 0;
     static void pemesananRapat() {
 
         System.out.println("Jumlah Tamu Undangan: ");
-        System.out.println("Ruangan A = 10 - 20 ");
-        System.out.println("Ruangan B = 20 - 30 ");
-        System.out.println("Ruangan C = 30 - 50 ");
+        System.out.println("Ruangan A = 10 - 20\t Rp. 500.000 ");
+        System.out.println("Ruangan B = 20 - 30\t Rp. 550.000 ");
+        System.out.println("Ruangan C = 30 - 50\t Rp. 600.000 ");
         System.out.print("Masukkan Jumlah Tamu :  ");
         jumlahTamu = input.nextInt();
 
@@ -174,18 +176,25 @@ public class BookingGedung {
             System.out.println("Tamu undangan anda melebihi kapasitas");
             System.out.println("Silahkan coba lagi");
             System.out.print("Jumlah Tamu Undangan:\n Ruangan A = 10 - 20  ");
-            System.out.print("Ruangan B = 20 - 30  ");
-            System.out.print("Ruangan C = 30 - 50  ");
+            System.out.print("Ruangan B = 20 - 30 ");
+            System.out.print("Ruangan C = 30 - 50 ");
             System.out.print("Masukkan Jumlah Tamu  : ");
             jumlahTamu = input.nextInt();
         }
 
+       
         if (jumlahTamu <= 20) {
             jenisRuang = "Ruangan A";
+            HargaRuang = 500000;
+            totalHargaRapat += HargaRuang;
         } else if (20 <= jumlahTamu && jumlahTamu <= 30) {
             jenisRuang = "Ruangan B";
+            HargaRuang = 550000;
+            totalHargaRapat += HargaRuang;
         } else if (30 <= jumlahTamu && jumlahTamu <= 50) {
             jenisRuang = "Ruangan C";
+            HargaRuang = 600000;
+            totalHargaRapat += HargaRuang;
         } else {
             jenisRuang = "Coba lagi";
         }
@@ -420,29 +429,55 @@ public class BookingGedung {
                     String layananTambahanRapat[] = new String[4];
                     char confirm;
                     int g = 0;
+                    int h = 0;
+                    int hargaLayananTambahanRapat[] = new int [4];
+                    int totalHargaSnack = 0;
+                    int jumlahSnack;
+                    int jumlahKursi;
+                 
+            
                     do {
                         System.out.println("Layanan Tambahan: ");
-                        System.out.println("1. Snack & Minuman");
-                        System.out.println("2. Sound System");
-                        System.out.println("3. LCD Proyektor");
-                        System.out.println("4. Kursi");
+                        System.out.println("1. Snack & Minuman\t Rp. 20.000");
+                        System.out.println("2. Sound System\t\t Rp. 500.000 ");
+                        System.out.println("3. LCD Proyektor\t Rp. 100.000");
+                        System.out.println("4. Kursi Tambahan\t Rp. 0");
                         System.out.print("Pilih layanan tambahan anda : ");
                         int pilihan = input.nextInt();
                         switch (pilihan) {
                             case 1:
                                 layananTambahanRapat[g] = "Snack & Minuman";
+                                hargaLayananTambahanRapat[h] = 20000;
+                                System.out.print("Masukkan jumlah pesanan : ");
+                                jumlahSnack = input.nextInt();
+                                hargaLayananTambahanRapat[h] *= jumlahSnack;
+                                layananTambahanRapat[g] = "Snack & Minuman = " + jumlahSnack;
+                                totalHargaRapat += hargaLayananTambahanRapat[h];
+                                h++;
                                 g++;
                                 break;
                             case 2:
                                 layananTambahanRapat[g] = "Sound System";
+                                hargaLayananTambahanRapat[h] = 500000;
+                                totalHargaRapat += 500000;
+                                h++;
                                 g++;
                                 break;
                             case 3:
                                 layananTambahanRapat[g] = "LCD Proyektor";
+                                hargaLayananTambahanRapat[h] = 100000;
+                                totalHargaRapat += 100000;
+                                h++;
                                 g++;
                                 break;
                             case 4:
                                 layananTambahanRapat[g] = "Kursi";
+                                hargaLayananTambahanRapat[h] = 0;
+                                System.out.print("Masukkan jumlah kursi tambahan : ");
+                                jumlahKursi = input.nextInt();
+                                layananTambahanRapat[g] = "Kursi =  " + jumlahKursi;
+                                totalHargaRapat += 0;
+                                h++;
                                 g++;
                                 break;
 
@@ -457,7 +492,7 @@ public class BookingGedung {
                             }
                         }
                         System.out.println("Apakah Anda ingin Menambah Layanan Tambahan?");
-                        System.out.println("Y (untuk Ya)\nT (untuk Tidak) : ");
+                        System.out.print("Y (untuk Ya)\nT (untuk Tidak) : ");
                         confirm = input.next().charAt(0);
 
                     } while (confirm == 'Y' || confirm == 'y');
@@ -473,13 +508,20 @@ public class BookingGedung {
                         System.out.println("         Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat[b - 1]);
                         System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
-                        System.out.println("         Jenis Ruangan\t\t\t: " + jenisRuang);
+                        System.out.println("         Jenis Ruangan\t\t\t: " + jenisRuang + " : " + HargaRuang);
                         System.out.println("\t Layanan Tambahan\t\t: ");
-                        for (int i = 0; i < g; i++) {
+                        int i = 0;
+                        int x = 0;
+                        for (; i < g; i++) {
                             System.out.println("\t   " + (i + 1) + ". " + layananTambahanRapat[i]);
+                            for (; x <= i ; x++ ){
+                                System.out.print("\t   Harga  = " +  " " + " Rp. " + hargaLayananTambahanRapat[x]);
+                            }
+                            System.out.println();
                         }
                         System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
                         System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
+                        System.out.println("        Total Biaya : " + totalHargaRapat);
                         System.out.println("=======================================================================");
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
