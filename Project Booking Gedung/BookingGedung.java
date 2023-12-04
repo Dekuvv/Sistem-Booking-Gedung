@@ -191,6 +191,8 @@ public class BookingGedung {
         }
     }
 
+    static int totalHargaPernikahan = 0;
+    static int hargaGedung;
     private static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         do {
@@ -218,21 +220,27 @@ public class BookingGedung {
                     a++;
 
                     System.out.println("Jumlah Tamu Undangan :  ");
-                    System.out.println("Gedung A = 100 - 200 ");
-                    System.out.println("Gedung B = 200 - 300 ");
-                    System.out.println("Gedung C = 300 - 400 ");
+                    System.out.println("Gedung A = 100 - 200 \t Rp. 1.000.000");
+                    System.out.println("Gedung B = 200 - 300 \t Rp. 1.500.000");
+                    System.out.println("Gedung C = 300 - 400 \t Rp. 2.000.000");
                     System.out.print("Masukkan Jumlah Tamu : ");
                     jumlahTamu = input.nextInt();
 
                     if (jumlahTamu <= 200) {
                         System.out.println("Anda akan menggunakan Gedung A");
                         gedungNikah[0] = "Gedung A";
+                        hargaGedung = 1000000;
+                        totalHargaPernikahan += hargaGedung;
                     } else if (200 <= jumlahTamu && jumlahTamu <= 300) {
                         System.out.println("Anda akan menggunakan Gedung B");
                         gedungNikah[1] = "Gedung B";
+                        hargaGedung = 1500000;
+                        totalHargaPernikahan += hargaGedung;
                     } else if (300 <= jumlahTamu && jumlahTamu <= 400) {
                         System.out.println("Anda akan menggunakan Gedung C");
                         gedungNikah[2] = "Gedung C";
+                        hargaGedung = 2000000;
+                        totalHargaPernikahan += hargaGedung;
                     } else {
                         System.out.println("Pemesanan Anda Melebihi Kapasitas Gedung");
                     }
@@ -249,14 +257,21 @@ public class BookingGedung {
                     int k = 0, l = 0;
                     boolean cateringBoolean = false;
                     int jmlLayananTambahan = 0;
-
+                    int hargaLayananTambahan [] = new int [5];
+                    int hargaCatering [] = new int [3];
+                    int jumlahPaketCatering[] = new int [3];
+                    int m = 0;
+                    int hargaPaket [] = new int[3];
+                    int LayananTambahan [] = new int[4];
+                    int n = 0;
+                    int r = 0;
                     do {
                         System.out.println("Layanan Tambahan : ");
                         System.out.println("1. Catering");
-                        System.out.println("2. MC");
-                        System.out.println("3. Photography + Video Graphy");
-                        System.out.println("4. Dekorasi");
-                        System.out.println("5. Musik dan Hiburan");
+                        System.out.println("2. MC\t\t\t\t Rp. 800.000");
+                        System.out.println("3. Photography + Video Graphy\t Rp. 3.000.000");
+                        System.out.println("4. Dekorasi\t\t\t Rp. 10.000.000");
+                        System.out.println("5. Musik dan Hiburan\t\t Rp. 5.000.000");
                         System.out.print("Masukkan nomor layanan tambahan yang anda pilih : ");
                         layananTambahan = input.next();
 
@@ -272,13 +287,31 @@ public class BookingGedung {
                                     case "1":
                                         menu[k] = "Nasi Putih, Gurami telor Asin, Soup sosis, Pudding Coklat, Air Mineral ";
                                         k++;
+                                        System.out.print("Masukkan jumlah pesanan untuk paket 1: ");
+                                        jumlahPaketCatering [m] = input.nextInt();
+                                        hargaPaket [n] = 50000;
+                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m]; 
+                                        m++;
+                                        n++;
                                         break;
                                     case "2":
-                                        menu[k] = "Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral";
+                                        menu[k] = "Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral ";
+                                        System.out.print("Masukkan jumlah pesanan untuk paket 2: ");
+                                        jumlahPaketCatering [m] = input.nextInt();
+                                        hargaPaket [n] = 40000;
+                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        m++;
+                                        n++;
                                         k++;
                                         break;
                                     case "3":
-                                        menu[k] = "Nasi Putih, Ayam Teriyaki, Air Mineral";
+                                        menu[k] = "Nasi Putih, Ayam Teriyaki, Air Mineral ";
+                                        System.out.print("Masukkan jumlah pesanan untuk paket 3: ");
+                                        jumlahPaketCatering [m] = input.nextInt();
+                                        hargaPaket [n] = 30000;
+                                        totalHargaPernikahan += hargaPaket [n];
+                                        m++;
+                                        n++;
                                         k++;
                                         break;
                                     default:
@@ -293,18 +326,32 @@ public class BookingGedung {
                         if (layananTambahan.equals("2")) {
                             layananTambahan2[jmlLayananTambahan] = "MC";
                             jmlLayananTambahan++;
+                            LayananTambahan [r] = 800000;
+                            totalHargaPernikahan += LayananTambahan [r];
+                            r++;
+
                         }
                         if (layananTambahan.equals("3")) {
                             layananTambahan2[jmlLayananTambahan] = "Photography + Video Graphy";
                             jmlLayananTambahan++;
+                            LayananTambahan [r] = 3000000;
+                            totalHargaPernikahan += LayananTambahan [r];
+                            r++;
+
                         }
                         if (layananTambahan.equals("4")) {
                             layananTambahan2[jmlLayananTambahan] = "Dekorasi";
                             jmlLayananTambahan++;
+                            LayananTambahan [r] = 10000000;
+                            totalHargaPernikahan += LayananTambahan [r];
+                            r++;
                         }
                         if (layananTambahan.equals("5")) {
                             layananTambahan2[jmlLayananTambahan] = "Musik dan Hiburan";
                             jmlLayananTambahan++;
+                            LayananTambahan [r] = 5000000;
+                            totalHargaPernikahan += LayananTambahan [r];
+                            r++;
                         }
                         System.out.print("Apakah Ingin Menambah Layanan Tambahan?\n(y) untuk iya\n(t) untuk tidak : ");
                         konfirmasi = input.next();
@@ -323,24 +370,37 @@ public class BookingGedung {
                         System.out.println("           Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a - 1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
-                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung);
+                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung + " " + hargaGedung);
 
                         int i = 0, j = 1;
                         System.out.println("\t   Layanan Tambahan\t\t: ");
                         while (i < jmlLayananTambahan) {
-                            System.out.println("\t     " + j + "." + " " + layananTambahan2[i]);
+                            System.out.print("\t     " + j + "." + " " + layananTambahan2[i]);
+                            System.out.println("\t Rp. " + LayananTambahan [i]);
                             i++;
                             j++;
                         }
                         if (cateringBoolean = true) {
                             System.out.println("\t     Pesanan Catering: ");
-                            for (int m = 0; m < l; m++) {
-                                System.out.println("\t     - " + menu[m]);
+                            int o = 0;
+                            int p = 0;
+                            int q = 0;
+                            for (  ; o < l; o++) {
+                                System.out.print("     - " + menu[o]);
+                                for ( ; p <= o ; p++){
+                                    System.out.print(" = " + jumlahPaketCatering[p]);
+                                }
+                                for (; q <= o ; q++){
+                                    System.out.print(" = " + hargaPaket [q]);
+                                }
+                                System.out.println();
                             }
+                            
                         }
 
                         System.out.println("           Nomor Telepon\t\t: " + nomorTelepon);
                         System.out.println("           Alamat Email\t\t\t: " + alamatEmail);
+                        System.out.println("           Biaya total = " + " Rp. " + totalHargaPernikahan);
                         System.out.println("=================================================================================");
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
@@ -516,10 +576,10 @@ public class BookingGedung {
     }
     //fungsi menu catering
     static void menuCatering() {
-        System.out.println("=========================================================================================");
-        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral ||");
-        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral        ||");
-        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral                                 ||");
-        System.out.println("=========================================================================================");
+        System.out.println("=========================================================================================================");
+        System.out.println("||  1. Paket A: Nasi Putih, Gurami Telor Asin, Soup sosis, Pudding Coklat, Air Mineral\t Rp. 50.000\t||");
+        System.out.println("||  2. Paket B: Nasi Putih, Ayam Bakar, Tumis Kangkung, Soft Drink, Air Mineral\t\t Rp. 40.000\t||");
+        System.out.println("||  3. Paket C: Nasi Putih, Ayam Teriyaki, Air Mineral\t\t\t\t\t Rp. 30.000\t||");
+        System.out.println("=========================================================================================================");
     }
 }
