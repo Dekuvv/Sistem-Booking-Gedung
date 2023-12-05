@@ -498,6 +498,7 @@ public class BookingGedung {
                             default:
                                 System.out.println("Pilihan layanan tambahan tidak dapat diproses");
                                 break;
+                        
                         }
                         System.out.println("Layanan Tambahan yang Anda Pilih: ");
                         for (String layanan : layananTambahanRapat) {
