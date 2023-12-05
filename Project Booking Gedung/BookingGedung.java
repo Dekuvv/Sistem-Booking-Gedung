@@ -385,13 +385,17 @@ public class BookingGedung {
                         System.out.println("           Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a - 1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
-                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung + " " + hargaGedung);
+                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung + "\t = Rp. " + hargaGedung);
 
-                        int i = 0, j = 1;
+                        int i = 0, j = 1, b = 0;
                         System.out.println("\t   Layanan Tambahan\t\t: ");
                         while (i < jmlLayananTambahan) {
-                            System.out.print("\t     " + j + "." + " " + layananTambahan2[i]);
-                            System.out.println("\t Rp. " + LayananTambahan [i]);
+                            System.out.println("\t     " + j + "." + " " + layananTambahan2[i]);
+                            if (!(layananTambahan2[i].equalsIgnoreCase("catering"))) {
+                                for ( ; b < i ; b++ ){
+                                System.out.println("\t     Rp. " + LayananTambahan [b]);
+                            }
+                            }
                             i++;
                             j++;
                         }
@@ -406,7 +410,7 @@ public class BookingGedung {
                                     System.out.print(" = " + jumlahPaketCatering[p]);
                                 }
                                 for (; q <= o ; q++){
-                                    System.out.print(" = " + hargaPaket [q]);
+                                    System.out.print(" = Rp. " + hargaPaket [q]);
                                 }
                                 System.out.println();
                             }
