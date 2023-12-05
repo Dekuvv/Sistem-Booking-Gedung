@@ -50,8 +50,8 @@ public class BookingGedung {
     }
     
     // Admin ID and Password
-    static final String ADMIN_ID = "admin";
-    static final String ADMIN_PASSWORD = "admin123";
+    static String ADMIN_ID = "admin";
+    static String ADMIN_PASSWORD = "admin123";
 
     static void adminLogin(String[][] akun, String[][] password) {
         Scanner input = new Scanner(System.in);
@@ -117,7 +117,7 @@ public class BookingGedung {
     static String jenisGedung;
     static Scanner input = new Scanner(System.in);
 
-    private static boolean isValidJumlahTamu ( int tamu){
+    static boolean isValidJumlahTamu ( int tamu){
         while (tamu > 400) {
             System.out.println("Tamu undangan anda melebihi kapasitas");
             System.out.println("Silahkan coba lagi");
@@ -128,7 +128,7 @@ public class BookingGedung {
             System.out.print("Masukkan Jumlah Tamu: ");
             tamu = input.nextInt();
         }
-
+        
         if (tamu <= 200) {
             jenisGedung = "Gedung A";
         } else if (200 <= tamu && tamu <= 300) {
@@ -138,21 +138,23 @@ public class BookingGedung {
         } else {
             jenisGedung = "coba lagi";
         }
-
+        
         return true;
-
+        
     }
     //fungsi untuk pemesanan Rapat
     static int totalHargaRapat = 0;
     static void pemesananRapat() {
-
-        System.out.println("Jumlah Tamu Undangan: ");
-        System.out.println("Ruangan A = 10 - 20\t Rp. 500.000 ");
-        System.out.println("Ruangan B = 20 - 30\t Rp. 550.000 ");
-        System.out.println("Ruangan C = 30 - 50\t Rp. 600.000 ");
+        
+        System.out.println("=======================================");
+        System.out.println("|| Jumlah Tamu Undangan:             ||");
+        System.out.println("|| Ruangan A = 10 - 20\t Rp. 500.000 ||");
+        System.out.println("|| Ruangan B = 20 - 30\t Rp. 550.000 ||");
+        System.out.println("|| Ruangan C = 30 - 50\t Rp. 600.000 ||");
+        System.out.println("=======================================");
         System.out.print("Masukkan Jumlah Tamu :  ");
         jumlahTamu = input.nextInt();
-
+        
         if (jumlahTamu <= 20) {
             System.out.println("Anda akan menggunakan Ruangan A");
             ruangRapat[0] = "Ruangan A";
@@ -165,13 +167,13 @@ public class BookingGedung {
         } else {
             System.out.println("Jumlah tamu melebihi daya tampung Ruangan kami");
         }
-
+        
         System.out.print("Masukkan Nomor Telepon : ");
         nomorTelepon = input.next();
-
+        
         System.out.print("Masukkan Alamat Email  : ");
         alamatEmail = input.next();
-
+        
         while (!(jumlahTamu <= 50)) {
             System.out.println("Tamu undangan anda melebihi kapasitas");
             System.out.println("Silahkan coba lagi");
@@ -181,8 +183,8 @@ public class BookingGedung {
             System.out.print("Masukkan Jumlah Tamu  : ");
             jumlahTamu = input.nextInt();
         }
-
-       
+        
+        
         if (jumlahTamu <= 20) {
             jenisRuang = "Ruangan A";
             HargaRuang = 500000;
@@ -199,10 +201,10 @@ public class BookingGedung {
             jenisRuang = "Coba lagi";
         }
     }
-
+    
     static int totalHargaPernikahan = 0;
     static int hargaGedung;
-    private static void menu(String[] layananTambahan2,String formattanggalPemesanan){
+    static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         do {
             System.out.println("========================");
@@ -211,30 +213,32 @@ public class BookingGedung {
             System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\n3. Exit\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
             //INPUT
-
+            
             if (pilihanmenu == 2) {
                 System.out.print("Masukkan Nama Pemesan\t: ");
                 input.nextLine();
                 identitasPemesan = input.nextLine();
-
+                
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                 acara = input.next();
                 //Acara pernikahan
                 if (acara.equalsIgnoreCase("pernikahan")) {
-
+                    
                     System.out.print("Tanggal Pelaksanaan Acara : ");
                     input.nextLine();
                     int a = 0;
                     tanggalPelaksanaanAcara[a] = input.nextLine();
                     a++;
-
-                    System.out.println("Jumlah Tamu Undangan :  ");
-                    System.out.println("Gedung A = 100 - 200 \t Rp. 1.000.000");
-                    System.out.println("Gedung B = 200 - 300 \t Rp. 1.500.000");
-                    System.out.println("Gedung C = 300 - 400 \t Rp. 2.000.000");
+                    
+                    System.out.println("=================================================");
+                    System.out.println("|| Jumlah Tamu Undangan :\t\t       ||");
+                    System.out.println("|| Gedung A = 100 - 200 \t Rp. 1.000.000 ||");
+                    System.out.println("|| Gedung B = 200 - 300 \t Rp. 1.500.000 ||");
+                    System.out.println("|| Gedung C = 300 - 400 \t Rp. 2.000.000 ||");
+                    System.out.println("=================================================");
                     System.out.print("Masukkan Jumlah Tamu : ");
                     jumlahTamu = input.nextInt();
-
+                    
                     if (jumlahTamu <= 200) {
                         System.out.println("Anda akan menggunakan Gedung A");
                         gedungNikah[0] = "Gedung A";
@@ -275,12 +279,14 @@ public class BookingGedung {
                     int n = 0;
                     int r = 0;
                     do {
-                        System.out.println("Layanan Tambahan : ");
-                        System.out.println("1. Catering");
-                        System.out.println("2. MC\t\t\t\t Rp. 800.000");
-                        System.out.println("3. Photography + Video Graphy\t Rp. 3.000.000");
-                        System.out.println("4. Dekorasi\t\t\t Rp. 10.000.000");
-                        System.out.println("5. Musik dan Hiburan\t\t Rp. 5.000.000");
+                        System.out.println("==========================================================");
+                        System.out.println("|| Layanan Tambahan :                                   ||");
+                        System.out.println("|| 1. Catering                                          ||");
+                        System.out.println("|| 2. MC\t\t\t\t Rp. 800.000    ||");
+                        System.out.println("|| 3. Photography + Video Graphy\t Rp. 3.000.000  ||");
+                        System.out.println("|| 4. Dekorasi\t\t\t\t Rp. 10.000.000 ||");
+                        System.out.println("|| 5. Musik dan Hiburan\t\t\t Rp. 5.000.000  ||");
+                        System.out.println("==========================================================");
                         System.out.print("Masukkan nomor layanan tambahan yang anda pilih : ");
                         layananTambahan = input.next();
 
@@ -555,7 +561,7 @@ public class BookingGedung {
         } while (confirmMenu.equalsIgnoreCase("y"));
     }
     //Display Admin Menu
-    private static void adminMenu(String [] gedungNikah, String[] ruangRapat, String[] tanggalPelaksanaanAcara, String[] tanggalPelaksanaanRapat) {
+    static void adminMenu(String [] gedungNikah, String[] ruangRapat, String[] tanggalPelaksanaanAcara, String[] tanggalPelaksanaanRapat) {
         Scanner input = new Scanner(System.in);
         String confirmMenu;
 
@@ -579,7 +585,7 @@ public class BookingGedung {
         } while (confirmMenu.equalsIgnoreCase("y"));
     }
     //display tempat yang dipesan
-    private static void displayBookedVenues(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+    static void displayBookedVenues(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
         System.out.println("========== Booked Venues ==========");
 
         for (int i = 0; i < gedungNikah.length; i++) {
