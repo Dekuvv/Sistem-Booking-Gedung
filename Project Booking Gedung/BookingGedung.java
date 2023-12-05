@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class BookingGedung {
     public static void main(String[] args) {
@@ -573,13 +574,16 @@ public class BookingGedung {
             System.out.println("====================");
             System.out.println("||   Menu Admin   ||");
             System.out.println("====================");
-            System.out.print("1. Lihat Gedung yang Terpesan\n2. Keluar\nMasukkan Angka dari menu: ");
+            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Harian dan Laporan Bulanan\n3. Keluar\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
 
             if (pilihanmenu == 1) {
                 displayBookedVenues(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 2) {
-                System.out.println("Keluar dari Menu Admin.");
+                laporanHarian(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
+                laporanBulanan(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
+            } else if (pilihanmenu == 3) {
+                System.out.println("Keluar dari menu admin");
                 break;
             }
 
@@ -607,6 +611,64 @@ public class BookingGedung {
         System.out.println("===================================");
 
     }
+     // laporan harian
+     public static void laporanHarian(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+        System.out.println("======================================");
+        System.out.println("Laporan Harian Gedung Nikah & Ruang Rapat");
+        System.out.println("======================================");
+
+        int jumlahGedungNikahterpakai = 0;
+        int jumlahRuangRapatterpakai = 0;
+
+        for (int i = 0; i < gedungNikah.length; i++) {
+            if (gedungNikah[i] != null) {
+                System.out.println(gedungNikah[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanAcara[i]);
+                jumlahGedungNikahterpakai++;
+            }
+        }
+
+        for (int i = 0; i < ruangRapat.length; i++) {
+            if (ruangRapat[i] != null) {
+                System.out.println(ruangRapat[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanRapat[i]);
+                jumlahRuangRapatterpakai++;
+            }
+        }
+
+        System.out.println("Total gedung nikah yang dipesan: " + jumlahGedungNikahterpakai);
+        System.out.println("Total ruang rapat yang dipesan: " + jumlahRuangRapatterpakai);
+        System.out.println("======================================");
+    }
+
+    // laporan bulanan
+    public static void laporanBulanan(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+        System.out.println("======================================");
+        System.out.println("Laporan Bulanan Gedung Nikah & Ruang Rapat");
+        System.out.println("======================================");
+
+        int jumlahGedungNikahterpakai = 0;
+        int jumlahRuangRapatterpakai = 0;
+
+        String bulanIni = new Date().toLocaleString().substring(0, 7);
+
+        for (int i = 0; i < gedungNikah.length; i++) {
+            if (gedungNikah[i] != null && tanggalPelaksanaanAcara[i].substring(0, 7).equals(bulanIni)) {
+                System.out.println(gedungNikah[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanAcara[i]);
+                jumlahGedungNikahterpakai++;
+            }
+        }
+
+        for (int i = 0; i < ruangRapat.length; i++) {
+            if (ruangRapat[i] != null && tanggalPelaksanaanRapat[i].substring(0, 7).equals(bulanIni)) {
+                System.out.println(ruangRapat[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanRapat[i]);
+                jumlahRuangRapatterpakai++;
+            }
+        }
+
+        System.out.println("Total gedung nikah yang dipesan bulan ini: " + jumlahGedungNikahterpakai);
+        System.out.println("Total ruang rapat yang dipesan bulan ini: " + jumlahRuangRapatterpakai);
+        System.out.println("======================================");
+    }
+
     //fungsi tampilan awal
     static void PenampilanAwal(){
         System.out.println("===================================================================");
