@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 public class BookingGedung {
     public static void main(String[] args) {
@@ -653,17 +653,15 @@ public class BookingGedung {
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
 
-        String bulanIni = new Date().toLocaleString().substring(0, 7);
-
         for (int i = 0; i < gedungNikah.length; i++) {
-            if (gedungNikah[i] != null && tanggalPelaksanaanAcara[i].substring(0, 7).equals(bulanIni)) {
+            if (gedungNikah[i] != null ) {
                 System.out.println(gedungNikah[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanAcara[i]);
                 jumlahGedungNikahterpakai++;
             }
         }
 
         for (int i = 0; i < ruangRapat.length; i++) {
-            if (ruangRapat[i] != null && tanggalPelaksanaanRapat[i].substring(0, 7).equals(bulanIni)) {
+            if (ruangRapat[i] != null ) {
                 System.out.println(ruangRapat[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanRapat[i]);
                 jumlahRuangRapatterpakai++;
             }
