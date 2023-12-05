@@ -618,58 +618,58 @@ public class BookingGedung {
     }
      // laporan harian
      public static void laporanHarian(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
-        System.out.println("======================================");
+        System.out.println("==========================================");
         System.out.println("Laporan Harian Gedung Nikah & Ruang Rapat");
-        System.out.println("======================================");
+        System.out.println("==========================================");
 
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
 
         for (int i = 0; i < gedungNikah.length; i++) {
             if (gedungNikah[i] != null) {
-                System.out.println(gedungNikah[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanAcara[i]);
+                System.out.println(gedungNikah[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanAcara[i]);
                 jumlahGedungNikahterpakai++;
             }
         }
 
         for (int i = 0; i < ruangRapat.length; i++) {
             if (ruangRapat[i] != null) {
-                System.out.println(ruangRapat[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanRapat[i]);
+                System.out.println(ruangRapat[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanRapat[i]);
                 jumlahRuangRapatterpakai++;
             }
         }
 
         System.out.println("Total gedung nikah yang dipesan: " + jumlahGedungNikahterpakai);
         System.out.println("Total ruang rapat yang dipesan: " + jumlahRuangRapatterpakai);
-        System.out.println("======================================");
+        System.out.println("===========================================");
     }
 
     // laporan bulanan
     public static void laporanBulanan(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
-        System.out.println("======================================");
+        System.out.println("===========================================");
         System.out.println("Laporan Bulanan Gedung Nikah & Ruang Rapat");
-        System.out.println("======================================");
+        System.out.println("===========================================");
 
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
 
         for (int i = 0; i < gedungNikah.length; i++) {
             if (gedungNikah[i] != null ) {
-                System.out.println(gedungNikah[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanAcara[i]);
+                System.out.println(gedungNikah[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanAcara[i]);
                 jumlahGedungNikahterpakai++;
             }
         }
 
         for (int i = 0; i < ruangRapat.length; i++) {
             if (ruangRapat[i] != null ) {
-                System.out.println(ruangRapat[i] + " sudah dipesan pada tanggal " + tanggalPelaksanaanRapat[i]);
+                System.out.println(ruangRapat[i] + " SUDAH DIPESAN PADA TANGGAL  " + tanggalPelaksanaanRapat[i]);
                 jumlahRuangRapatterpakai++;
             }
         }
 
         System.out.println("Total gedung nikah yang dipesan bulan ini: " + jumlahGedungNikahterpakai);
         System.out.println("Total ruang rapat yang dipesan bulan ini: " + jumlahRuangRapatterpakai);
-        System.out.println("======================================");
+        System.out.println("===========================================");
     }
 
     //fungsi tampilan awal
