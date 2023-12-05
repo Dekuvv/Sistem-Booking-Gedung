@@ -217,9 +217,9 @@ public class BookingGedung {
             int pilihanmenu = input.nextInt();
             //INPUT
             
+            input.nextLine();
             if (pilihanmenu == 2) {
                 System.out.print("Masukkan Nama Pemesan\t: ");
-                input.nextLine();
                 identitasPemesan = input.nextLine();
                 
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
@@ -511,6 +511,7 @@ public class BookingGedung {
                         confirm = input.next().charAt(0);
 
                     } while (confirm == 'Y' || confirm == 'y');
+                    input.nextLine();
 
                     //NOTA PEMESANAN RAPATT
                     boolean pemesananBerhasil = true;
@@ -541,6 +542,7 @@ public class BookingGedung {
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
                     }
+                    
 
                     //tampilanClosing();
                     //CLOSING SCANNER
@@ -565,7 +567,6 @@ public class BookingGedung {
                 return;
             }
             System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
-            input.nextLine();
             confirmMenu = input.nextLine();
         } while (confirmMenu.equalsIgnoreCase("y"));
     }
