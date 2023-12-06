@@ -76,7 +76,7 @@ public class BookingGedung {
 
                 if (attemptCount >= 3) {
                     System.out.println("Anda sudah mencoba login sebanyak 3 kali. Aplikasi akan keluar.");
-                    System.exit(0);
+                    break;
                 }
             }
         } while (!login);
