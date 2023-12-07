@@ -223,9 +223,13 @@ public class BookingGedung {
             if (pilihanmenu == 2) {
                 System.out.print("Masukkan Nama Pemesan\t: ");
                 identitasPemesan = input.nextLine();
-                
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                 acara = input.nextLine();
+                while (!(acara.equalsIgnoreCase("pernikahan")) || !(acara.equalsIgnoreCase("rapat"))){
+                    System.out.println("input yang anda masukkan error, silahkan coba lagi");
+                    System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
+                    acara = input.nextLine();
+                }
                 //Acara pernikahan
                 if (acara.equalsIgnoreCase("pernikahan")) {
                     
@@ -692,7 +696,7 @@ public class BookingGedung {
         }else if (acara.equalsIgnoreCase("rapat")){
             System.out.print("Tanggal pelaksanaan acara sebelumnya: ");
             tanggalSebelum = input.nextLine();
-            for (int i = 0 ; i < a ; i++){
+            for (int i = 0 ; i < b ; i++){
                 if (tanggalPelaksanaanRapat [i].equals(tanggalSebelum)){
                     System.out.print("Masukkan tanggal untuk perubahan jadwal: ");
                     tanggalBaru = input.nextLine();
