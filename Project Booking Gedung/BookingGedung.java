@@ -43,14 +43,14 @@ public class BookingGedung {
 
             System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
             backToMenu = input.nextLine();
-            while (backToMenu != "y" && backToMenu != "t") {
+            if (backToMenu != "y" && backToMenu != "t") {
                 System.out.println("INPUT YANG ANDA MASUKKAN TIDAK SESUAI\nSILAHKAN ULANGI ");
                 System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
                 backToMenu = input.nextLine();
             }
 
 
-        } while (backToMenu.equalsIgnoreCase("y"));
+        } while (!backToMenu.equalsIgnoreCase("t"));
 
         tampilanClosing();
     }
@@ -595,15 +595,21 @@ public class BookingGedung {
             System.out.println("====================");
             System.out.println("||   Menu Admin   ||");
             System.out.println("====================");
-            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Harian dan Laporan Bulanan\n3. Keluar\nMasukkan Angka dari menu: ");
+            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Harian\n3. Laporan Bulanan\n4. Keluar\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
+            while (pilihanmenu > 3) {
+                System.out.println("INPUT YANG ANDA MASUKKAN SALAH\nSILAHKAN ULANGI LAGI!!");
+                System.out.print("Masukkan angka kembali: ");
+                pilihanmenu = input.nextInt();
+            }
 
             if (pilihanmenu == 1) {
                 displayBookedVenues(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 2) {
                 laporanHarian(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
+            } else if (pilihanmenu == 3){
                 laporanBulanan(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
-            } else if (pilihanmenu == 3) {
+            } else if (pilihanmenu == 4) {
                 System.out.println("Keluar dari menu admin");
                 break;
             }
@@ -611,7 +617,12 @@ public class BookingGedung {
             System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
             input.nextLine();
             confirmMenu = input.nextLine();
-        } while (confirmMenu.equalsIgnoreCase("y"));
+            if (confirmMenu != "y" && confirmMenu != "t"){
+                System.out.println("INPUT YANG ANDA MASUKKAN TIDAK SESUAI\nSILAHKAN ANDA ULANGI!!");
+                System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
+                input.nextLine();
+            }
+        } while (confirmMenu.equalsIgnoreCase("t"));
     }
     //display tempat yang dipesan
     static void displayBookedVenues(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
