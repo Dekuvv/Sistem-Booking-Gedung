@@ -225,7 +225,7 @@ public class BookingGedung {
                 identitasPemesan = input.nextLine();
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                 acara = input.nextLine();
-                while (!(acara.equalsIgnoreCase("pernikahan")) || !(acara.equalsIgnoreCase("rapat"))){
+                while (!(acara.equalsIgnoreCase("pernikahan")) && !(acara.equalsIgnoreCase("rapat"))){
                     System.out.println("input yang anda masukkan error, silahkan coba lagi");
                     System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                     acara = input.nextLine();
