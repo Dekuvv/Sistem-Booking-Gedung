@@ -43,6 +43,11 @@ public class BookingGedung {
 
             System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
             backToMenu = input.nextLine();
+            while (backToMenu != "y" && backToMenu != "t") {
+                System.out.println("INPUT YANG ANDA MASUKKAN TIDAK SESUAI\nSILAHKAN ULANGI ");
+                System.out.print("Apakah anda ingin kembali ke menu login? (y/t): ");
+                backToMenu = input.nextLine();
+            }
 
 
         } while (backToMenu.equalsIgnoreCase("y"));
@@ -217,6 +222,11 @@ public class BookingGedung {
             System.out.println("========================");
             System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\n3. Reschedule Jadwal\n4. Exit\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
+            while (pilihanmenu > 4){
+                System.out.println("INPUT YANG ANDA MASUKKAN TIDAK TERSEDIA DALAM MENU\nSILAHKAN ANDA ULANGI!!");
+                System.out.print("Masukkan angka dari menu kembali: ");
+                pilihanmenu = input.nextInt();
+            }
             //INPUT
             
             input.nextLine();
