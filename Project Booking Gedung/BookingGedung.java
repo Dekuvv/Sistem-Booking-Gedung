@@ -207,13 +207,15 @@ public class BookingGedung {
     
     static int totalHargaPernikahan = 0;
     static int hargaGedung;
+    static int a = 0;
+    static int b = 0;
     static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         do {
             System.out.println("========================");
             System.out.println("||   Menu Pelanggan   ||");
             System.out.println("========================");
-            System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\n3. Exit\nMasukkan Angka dari menu: ");
+            System.out.print("1. Cek Gedung yang tersedia\n2. Booking Gedung\n3. Reschedule Jadwal\n4. Exit\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
             //INPUT
             
@@ -228,7 +230,6 @@ public class BookingGedung {
                 if (acara.equalsIgnoreCase("pernikahan")) {
                     
                     System.out.print("Tanggal Pelaksanaan Acara : ");
-                    int a = 0;
                     tanggalPelaksanaanAcara[a] = input.nextLine();
                     a++;
                     do {
@@ -435,7 +436,6 @@ public class BookingGedung {
                     //Acara rapat
                 } else if (acara.equalsIgnoreCase("rapat")) {
                     System.out.print("Tanggal Pelaksanaan Acara: ");
-                    int b = 0;
                     tanggalPelaksanaanRapat[b] = input.nextLine();
                     b++;
                     pemesananRapat();
@@ -564,6 +564,8 @@ public class BookingGedung {
                     System.out.println("SEMUA RUANGAN UNTUK RAPAT KOSONG");
                 }
             }else if (pilihanmenu == 3){
+                reschedulingJadwal(tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
+            }else if (pilihanmenu == 4){
                 return;
             }
             System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
@@ -672,6 +674,34 @@ public class BookingGedung {
         System.out.println("===========================================");
     }
 
+    static String reschedulingJadwal (String tanggalPelaksanaanAcara[], String tanggalPelaksanaanRapat[]){
+        String tanggalSebelum;
+        String tanggalBaru = " ";
+        System.out.print("Masukkan acara yang akan di reschedule (pernikahan/rapat): ");
+        String acara = input.nextLine();
+        if (acara.equalsIgnoreCase("pernikahan")){
+            System.out.print("Tanggal pelaksanaan acara sebelumnya: ");
+            tanggalSebelum = input.nextLine();
+            for (int i = 0 ; i < a ; i++){
+                if (tanggalPelaksanaanAcara [i].equals(tanggalSebelum)){
+                    System.out.print("Masukkan tanggal untuk perubahan jadwal: ");
+                    tanggalBaru = input.nextLine();
+                    tanggalPelaksanaanAcara [i] = tanggalBaru;
+                }
+            }
+        }else if (acara.equalsIgnoreCase("rapat")){
+            System.out.print("Tanggal pelaksanaan acara sebelumnya: ");
+            tanggalSebelum = input.nextLine();
+            for (int i = 0 ; i < a ; i++){
+                if (tanggalPelaksanaanRapat [i].equals(tanggalSebelum)){
+                    System.out.print("Masukkan tanggal untuk perubahan jadwal: ");
+                    tanggalBaru = input.nextLine();
+                    tanggalPelaksanaanRapat [i] = tanggalBaru;
+                }
+            }
+        }
+        return tanggalBaru;
+    }
     //fungsi tampilan awal
     static void PenampilanAwal(){
         System.out.println("===================================================================");
