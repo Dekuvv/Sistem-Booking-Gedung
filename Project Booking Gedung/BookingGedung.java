@@ -214,6 +214,9 @@ public class BookingGedung {
     static int hargaGedung;
     static int a = 0;
     static int b = 0;
+    static int c = 0;
+    static int d = 0;
+    static boolean tanggal = true;
     static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         do {
@@ -242,42 +245,57 @@ public class BookingGedung {
                 }
                 //Acara pernikahan
                 if (acara.equalsIgnoreCase("pernikahan")) {
-                    
-                    System.out.print("Tanggal Pelaksanaan Acara : ");
-                    tanggalPelaksanaanAcara[a] = input.nextLine();
-                    a++;
                     do {
-                        System.out.println("=================================================");
-                        System.out.println("|| Jumlah Tamu Undangan :\t\t       ||");
-                        System.out.println("|| Gedung A = 100 - 200 \t Rp. 1.000.000 ||");
-                        System.out.println("|| Gedung B = 200 - 300 \t Rp. 1.500.000 ||");
-                        System.out.println("|| Gedung C = 300 - 400 \t Rp. 2.000.000 ||");
-                        System.out.println("=================================================");
-                        System.out.print("Masukkan Jumlah Tamu : ");
-                        jumlahTamu = input.nextInt();
-                        
-                        if (jumlahTamu <= 200) {
-                            System.out.println("Anda akan menggunakan Gedung A");
-                            gedungNikah[0] = "Gedung A";
-                            hargaGedung = 1000000;
-                            totalHargaPernikahan += hargaGedung;
-                        } else if (200 <= jumlahTamu && jumlahTamu <= 300) {
-                            System.out.println("Anda akan menggunakan Gedung B");
-                            gedungNikah[1] = "Gedung B";
-                            hargaGedung = 1500000;
-                            totalHargaPernikahan += hargaGedung;
-                        } else if (300 <= jumlahTamu && jumlahTamu <= 400) {
-                            System.out.println("Anda akan menggunakan Gedung C");
-                            gedungNikah[2] = "Gedung C";
-                            hargaGedung = 2000000;
-                            totalHargaPernikahan += hargaGedung;
-                        } else {
-                            System.out.println("Pemesanan Anda Melebihi Kapasitas Gedung");
+                        System.out.print("Tanggal Pelaksanaan Acara : ");
+                        tanggalPelaksanaanAcara[a] = input.nextLine();
+                        do {
+                            System.out.println("=================================================");
+                            System.out.println("|| Jumlah Tamu Undangan :\t\t       ||");
+                            System.out.println("|| Gedung A = 100 - 200 \t Rp. 1.000.000 ||");
+                            System.out.println("|| Gedung B = 200 - 300 \t Rp. 1.500.000 ||");
+                            System.out.println("|| Gedung C = 300 - 400 \t Rp. 2.000.000 ||");
+                            System.out.println("=================================================");
+                            System.out.print("Masukkan Jumlah Tamu : ");
+                            jumlahTamu = input.nextInt();
+                            
+                            if (jumlahTamu <= 200) {
+                                System.out.println("Anda akan menggunakan Gedung A");
+                                gedungNikah[c] = "Gedung A";
+                                hargaGedung = 1000000;
+                                totalHargaPernikahan += hargaGedung;
+                            } else if (200 <= jumlahTamu && jumlahTamu <= 300) {
+                                System.out.println("Anda akan menggunakan Gedung B");
+                                gedungNikah[c] = "Gedung B";
+                                hargaGedung = 1500000;
+                                totalHargaPernikahan += hargaGedung;
+                            } else if (300 <= jumlahTamu && jumlahTamu <= 400) {
+                                System.out.println("Anda akan menggunakan Gedung C");
+                                gedungNikah[c] = "Gedung C";
+                                hargaGedung = 2000000;
+                                totalHargaPernikahan += hargaGedung;
+                            } else {
+                                System.out.println("Pemesanan Anda Melebihi Kapasitas Gedung");
+                            }
+                        } while (jumlahTamu > 400);
+                        if (a >= 1){
+                            int i = 0;
+                            for ( ; i < a ; i++){
+                                if (tanggalPelaksanaanAcara [a].equalsIgnoreCase(tanggalPelaksanaanAcara[i]) && gedungNikah [a].equalsIgnoreCase(gedungNikah [i])){
+                                        System.out.println(gedungNikah [a] + " sudah dipesan untuk tanggal " + tanggalPelaksanaanAcara [a]);
+                                        System.out.println("Silahkan Coba Lagi");
+                                        tanggal = false;
+                                }else {
+                                    tanggal = true;
+                                }
+
+                            }
                         }
-                    } while (jumlahTamu > 400);
+                        input.nextLine(); 
+                        } while (tanggal == false);
+                    c++;
+                    a++;
 
                     System.out.print("Masukkan Nomor Telepon : ");
-                    input.nextLine();
                     nomorTelepon = input.nextLine();
 
                     System.out.print("Masukkan Alamat Email  : ");
@@ -405,7 +423,7 @@ public class BookingGedung {
                         System.out.println("           Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
                         System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a - 1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
-                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung + "\t = Rp. " + hargaGedung);
+                        System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung  + "\t = Rp. " + hargaGedung);
 
                         int i = 0, j = 1, b = 0;
                         System.out.println("\t   Layanan Tambahan\t\t: ");
@@ -571,10 +589,10 @@ public class BookingGedung {
                         System.out.println(ruangRapat[i] + " SUDAH DIPESAN UNTUK TANGGAL " + tanggalPelaksanaanRapat[i]);
                     }
                 }
-                if (gedungNikah[0] == null && gedungNikah[1] == null && gedungNikah[2] == null) {
+                if (gedungNikah[0] == null && gedungNikah[1] == null && gedungNikah[2] == null && gedungNikah [3] == null && gedungNikah [4] == null) {
                     System.out.println("SEMUA GEDUNG UNTUK PERNIKAHAN KOSONG");
                 }
-                if (ruangRapat[0] == null && ruangRapat[1] == null && ruangRapat[2] == null) {
+                if (ruangRapat[0] == null && ruangRapat[1] == null && ruangRapat[2] == null && ruangRapat [3] == null && ruangRapat [4] == null) {
                     System.out.println("SEMUA RUANGAN UNTUK RAPAT KOSONG");
                 }
             }else if (pilihanmenu == 3){
