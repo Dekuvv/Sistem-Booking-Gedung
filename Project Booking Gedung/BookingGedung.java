@@ -634,7 +634,7 @@ public class BookingGedung {
             System.out.println("====================");
             System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Harian\n3. Laporan Bulanan\n4. Keluar\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
-            while (pilihanmenu > 3) {
+            while (pilihanmenu > 4) {
                 System.out.println("INPUT YANG ANDA MASUKKAN SALAH\nSILAHKAN ULANGI LAGI!!");
                 System.out.print("Masukkan angka kembali: ");
                 pilihanmenu = input.nextInt();
@@ -654,12 +654,12 @@ public class BookingGedung {
             System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
             input.nextLine();
             confirmMenu = input.nextLine();
-            if (confirmMenu != "y" && confirmMenu != "t"){
+            while (!confirmMenu.equalsIgnoreCase("y") && !confirmMenu.equalsIgnoreCase("t")){
                 System.out.println("INPUT YANG ANDA MASUKKAN TIDAK SESUAI\nSILAHKAN ANDA ULANGI!!");
                 System.out.print("Apakah anda ingin kembali ke menu? (y/t): ");
                 input.nextLine();
             }
-        } while (confirmMenu.equalsIgnoreCase("t"));
+        } while (confirmMenu.equalsIgnoreCase("y"));
     }
     //display tempat yang dipesan
     static void displayBookedVenues(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
