@@ -149,8 +149,9 @@ public class BookingGedung {
         
     }
     //fungsi untuk pemesanan Rapat
-    static int totalHargaRapat = 0;
+    static int totalHargaRapat []= {};
     static int e = 0;
+    static int totHarRap = 0;
     static void pemesananRapat() {
         do{
             System.out.println("=======================================");
@@ -190,26 +191,28 @@ public class BookingGedung {
         if (jumlahTamu <= 20) {
             jenisRuang = "Ruangan A";
             HargaRuang = 500000;
-            totalHargaRapat += HargaRuang;
+            totalHargaRapat[totHarRap] += HargaRuang;
+
         } else if (20 <= jumlahTamu && jumlahTamu <= 30) {
             jenisRuang = "Ruangan B";
             HargaRuang = 550000;
-            totalHargaRapat += HargaRuang;
+            totalHargaRapat[totHarRap] += HargaRuang;
         } else if (30 <= jumlahTamu && jumlahTamu <= 50) {
             jenisRuang = "Ruangan C";
             HargaRuang = 600000;
-            totalHargaRapat += HargaRuang;
+            totalHargaRapat[totHarRap] += HargaRuang;
         } else {
             jenisRuang = "Coba lagi";
         }
     }
     
-    static int totalHargaPernikahan = 0;
+    static int totalHargaPernikahan [] = {};
     static int hargaGedung;
     static int a = 0;
     static int b = 0;
     static int c = 0;
     static int d = 0;
+    static int totHarPer = 0;
     static boolean tanggal = true;
     static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
@@ -258,17 +261,17 @@ public class BookingGedung {
                                 System.out.println("Anda akan menggunakan Gedung A");
                                 gedungNikah[c] = "Gedung A";
                                 hargaGedung = 1000000;
-                                totalHargaPernikahan += hargaGedung;
+                                totalHargaPernikahan[totHarPer] += hargaGedung;
                             } else if (200 <= jumlahTamu && jumlahTamu <= 300) {
                                 System.out.println("Anda akan menggunakan Gedung B");
                                 gedungNikah[c] = "Gedung B";
                                 hargaGedung = 1500000;
-                                totalHargaPernikahan += hargaGedung;
+                                totalHargaPernikahan [totHarPer] += hargaGedung;
                             } else if (300 <= jumlahTamu && jumlahTamu <= 400) {
                                 System.out.println("Anda akan menggunakan Gedung C");
                                 gedungNikah[c] = "Gedung C";
                                 hargaGedung = 2000000;
-                                totalHargaPernikahan += hargaGedung;
+                                totalHargaPernikahan[totHarPer] += hargaGedung;
                             } else {
                                 System.out.println("Pemesanan Anda Melebihi Kapasitas Gedung");
                             }
@@ -339,10 +342,11 @@ public class BookingGedung {
                                         System.out.print("Masukkan jumlah pesanan untuk paket 1: ");
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 50000;
-                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        totalHargaPernikahan[totHarPer] += hargaPaket [n] * jumlahPaketCatering [m];
                                         hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
+                                        totHarPer ++;
                                         input.nextLine();
                                         break;
                                     case "2":
@@ -350,11 +354,12 @@ public class BookingGedung {
                                         System.out.print("Masukkan jumlah pesanan untuk paket 2: ");
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 40000;
-                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        totalHargaPernikahan[totHarPer] += hargaPaket [n] * jumlahPaketCatering [m];
                                         hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
                                         k++;
+                                        totHarPer++;
                                         input.nextLine();
                                         break;
                                     case "3":
@@ -362,11 +367,12 @@ public class BookingGedung {
                                         System.out.print("Masukkan jumlah pesanan untuk paket 3: ");
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 30000;
-                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        totalHargaPernikahan[totHarPer]+= hargaPaket [n] * jumlahPaketCatering [m];
                                         hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
                                         k++;
+                                        totHarPer++;
                                         input.nextLine();
                                         break;
                                     default:
@@ -382,31 +388,35 @@ public class BookingGedung {
                             layananTambahan2[jmlLayananTambahan] = "MC";
                             jmlLayananTambahan++;
                             LayananTambahan [r] = 800000;
-                            totalHargaPernikahan += LayananTambahan [r];
+                            totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
+                            totHarPer++;
 
                         }
                         if (layananTambahan.equals("3")) {
                             layananTambahan2[jmlLayananTambahan] = "Photography + Video Graphy";
                             jmlLayananTambahan++;
                             LayananTambahan [r] = 3000000;
-                            totalHargaPernikahan += LayananTambahan [r];
+                            totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
+                            totHarPer++;
 
                         }
                         if (layananTambahan.equals("4")) {
                             layananTambahan2[jmlLayananTambahan] = "Dekorasi";
                             jmlLayananTambahan++;
                             LayananTambahan [r] = 10000000;
-                            totalHargaPernikahan += LayananTambahan [r];
+                            totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
+                            totHarPer++;
                         }
                         if (layananTambahan.equals("5")) {
                             layananTambahan2[jmlLayananTambahan] = "Musik dan Hiburan";
                             jmlLayananTambahan++;
                             LayananTambahan [r] = 5000000;
-                            totalHargaPernikahan += LayananTambahan [r];
+                            totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
+                            totHarPer++;
                         }
                         System.out.print("Apakah Ingin Menambah Layanan Tambahan?\n(y) untuk iya\n(t) untuk tidak : ");
                         konfirmasi = input.nextLine();
@@ -459,7 +469,7 @@ public class BookingGedung {
 
                         System.out.println("           Nomor Telepon\t\t: " + nomorTelepon);
                         System.out.println("           Alamat Email\t\t\t: " + alamatEmail);
-                        System.out.println("           Biaya total = " + " Rp. " + totalHargaPernikahan);
+                        System.out.println("           Biaya total = " + " Rp. " + totalHargaPernikahan[totHarPer]);
                         System.out.println("=================================================================================");
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
@@ -524,25 +534,28 @@ public class BookingGedung {
                                 jumlahSnack = input.nextInt();
                                 hargaLayananTambahanRapat[h] *= jumlahSnack;
                                 layananTambahanRapat[g] = "Snack & Minuman = " + jumlahSnack;
-                                totalHargaRapat += hargaLayananTambahanRapat[h];
+                                totalHargaRapat[totHarRap] += hargaLayananTambahanRapat[h];
                                 h++;
                                 g++;
+                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 2:
                                 layananTambahanRapat[g] = "Sound System";
                                 hargaLayananTambahanRapat[h] = 500000;
-                                totalHargaRapat += 500000;
+                                totalHargaRapat[totHarRap] += 500000;
                                 h++;
                                 g++;
+                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 3:
                                 layananTambahanRapat[g] = "LCD Proyektor";
                                 hargaLayananTambahanRapat[h] = 100000;
-                                totalHargaRapat += 100000;
+                                totalHargaRapat[totHarRap] += 100000;
                                 h++;
                                 g++;
+                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 4:
@@ -551,9 +564,10 @@ public class BookingGedung {
                                 System.out.print("Masukkan jumlah kursi tambahan : ");
                                 jumlahKursi = input.nextInt();
                                 layananTambahanRapat[g] = "Kursi =  " + jumlahKursi;
-                                totalHargaRapat += 0;
+                                totalHargaRapat[totHarRap] += 0;
                                 h++;
                                 g++;
+                                totHarRap++;
                                 input.nextLine();
                                 break;
 
@@ -608,7 +622,7 @@ public class BookingGedung {
                         }
                         System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
                         System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
-                        System.out.println("        Total Biaya : " + totalHargaRapat);
+                        System.out.println("        Total Biaya : " + totalHargaRapat[totHarRap]);
                         System.out.println("=======================================================================");
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
@@ -663,7 +677,7 @@ public class BookingGedung {
             if (pilihanmenu == 1) {
                 displayBookedVenues(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 2) {
-                LaporanPendapatan(totalHargaPernikahan, totalHargaRapat);
+               LaporanPendapatan(totalHargaPernikahan,totalHargaRapat);
             } else if(pilihanmenu == 3){
                 laporanHarian(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 4){
@@ -683,6 +697,7 @@ public class BookingGedung {
             }
         } while (confirmMenu.equalsIgnoreCase("y"));
     }
+    
     //display tempat yang dipesan
     static void displayBookedVenues(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
         System.out.println("========== Booked Venues ==========");
@@ -766,7 +781,7 @@ public class BookingGedung {
         System.out.println("===========================================");
     }
     //fungsi laporan pendapatan
-    static void LaporanPendapatan(int totalHargaPernikahan,int totalHargaRapat ){
+    static void LaporanPendapatan(int [] totalHargaPernikahan,int [] totalHargaRapat ){
         LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
         DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String formattanggallaporanPendapatan = tanggalKeluarLaporan.format(formatTanggal);
@@ -776,10 +791,24 @@ public class BookingGedung {
         System.out.println("===========================================");
         System.out.println("Tanggal Laporan: " + formattanggallaporanPendapatan);
 
-        int totalPendapatan = totalHargaPernikahan + totalHargaRapat;
-        System.out.println("Total Pendapatan Pernikahan: " + totalHargaPernikahan);
-        System.out.println("Total Pendapatan Rapat: " + totalHargaRapat);
-        System.out.println("Total Pendapatan Keseluruhan: " + totalPendapatan);
+        int totalPendapatanPernikahan = 0;
+        int totalPendapatanRapat = 0;
+
+        //total pendapatan pernikahan
+        for (int i = 0; i < totalHargaPernikahan.length; i++) {
+            totalPendapatanPernikahan += totalHargaPernikahan[i];
+        }
+
+        //total pendapatan rapat
+        for (int i = 0; i < totalHargaRapat.length; i++) {
+            totalPendapatanRapat += totalHargaRapat[i];
+        }
+
+        int totalPendapatanKeseluruhan = totalPendapatanPernikahan + totalPendapatanRapat;
+        
+        System.out.println("Total Pendapatan Pernikahan: " + totalPendapatanPernikahan);
+        System.out.println("Total Pendapatan Rapat: " + totalPendapatanRapat);
+        System.out.println("Total Pendapatan Keseluruhan: " + totalPendapatanKeseluruhan);
         System.out.println("===========================================");
 
 
