@@ -335,7 +335,8 @@ public class BookingGedung {
                                         System.out.print("Masukkan jumlah pesanan untuk paket 1: ");
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 50000;
-                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m]; 
+                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
                                         input.nextLine();
@@ -346,6 +347,7 @@ public class BookingGedung {
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 40000;
                                         totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
                                         k++;
@@ -356,7 +358,8 @@ public class BookingGedung {
                                         System.out.print("Masukkan jumlah pesanan untuk paket 3: ");
                                         jumlahPaketCatering [m] = input.nextInt();
                                         hargaPaket [n] = 30000;
-                                        totalHargaPernikahan += hargaPaket [n];
+                                        totalHargaPernikahan += hargaPaket [n] * jumlahPaketCatering [m];
+                                        hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
                                         k++;
