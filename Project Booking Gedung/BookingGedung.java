@@ -122,6 +122,7 @@ public class BookingGedung {
     static String jenisGedung;
     static Scanner input = new Scanner(System.in);
 
+    //Fungsi untuk jumlah tamu acara pernikahan
     static boolean isValidJumlahTamu ( int tamu){
         while (tamu > 400) {
             System.out.println("Tamu undangan anda melebihi kapasitas");
@@ -212,6 +213,7 @@ public class BookingGedung {
     static boolean tanggal = true;
     static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
+        //Tampilan menu pelanggan
         do {
             System.out.println("========================");
             System.out.println("||   Menu Pelanggan   ||");
@@ -223,8 +225,8 @@ public class BookingGedung {
                 System.out.print("Masukkan angka dari menu kembali: ");
                 pilihanmenu = input.nextInt();
             }
-            //INPUT
-            
+
+            //Input data pelanggan
             input.nextLine();
             if (pilihanmenu == 2) {
                 System.out.print("Masukkan Nama Pemesan\t: ");
@@ -241,6 +243,7 @@ public class BookingGedung {
                     do {
                         System.out.print("Tanggal Pelaksanaan Acara : ");
                         tanggalPelaksanaanAcara[a] = input.nextLine();
+                        //Input jumlah tamu acara pernikahan
                         do {
                             System.out.println("=================================================");
                             System.out.println("|| Jumlah Tamu Undangan :\t\t       ||");
@@ -308,6 +311,7 @@ public class BookingGedung {
                     int LayananTambahan [] = new int[4];
                     int n = 0;
                     int r = 0;
+                    //input layanan tambahan acara pernikahan
                     do {
                         System.out.println("==========================================================");
                         System.out.println("|| Layanan Tambahan :                                   ||");
@@ -410,7 +414,7 @@ public class BookingGedung {
 
 
                     boolean pemesananBerhasil = true;
-                    //OUTPUTTTT
+                    //Nota pemesanan acara pernikahan
                     isValidJumlahTamu(jumlahTamu);
                     if (pemesananBerhasil) {
                         System.out.println("\n=================================================================================");
@@ -461,9 +465,9 @@ public class BookingGedung {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
 
                     }
-                    //tampilanClosing();
 
-                    //Acara rapat
+
+                 //Acara rapat
                 } else if (acara.equalsIgnoreCase("rapat")) {
                     do{
                         System.out.print("Tanggal Pelaksanaan Acara: ");
@@ -500,10 +504,11 @@ public class BookingGedung {
                     int jumlahSnack;
                     int jumlahKursi;
                  
-            
+                    //Input layanan tambahan acara rapat
                     do {
                         System.out.println("===================================");
                         System.out.println("Layanan Tambahan: ");
+                        System.out.println("===================================");
                         System.out.println("1. Snack & Minuman\t Rp. 20.000");
                         System.out.println("2. Sound System\t\t Rp. 500.000 ");
                         System.out.println("3. LCD Proyektor\t Rp. 100.000");
@@ -557,6 +562,7 @@ public class BookingGedung {
                                 break;
                         
                         }
+                        //Menampilkan layanan tambahan yang dipesan
                         System.out.println("===================================");
                         System.out.println("Layanan Tambahan yang Anda Pilih: ");
                         for (String layanan : layananTambahanRapat) {
@@ -564,12 +570,19 @@ public class BookingGedung {
                                 System.out.println(layanan);
                             }
                         }
-                         System.out.println("===================================");
+                        System.out.println("===================================");
                         System.out.println("Apakah Anda ingin Menambah Layanan Tambahan?");
                         System.out.print("Y (untuk Ya)\nT (untuk Tidak) : ");
                         confirm = input.nextLine();
+                        while (!confirm.equalsIgnoreCase("y") && !confirm.equalsIgnoreCase("t")){
+                            System.out.println("INPUT YANG ANDA MASUKKAN SALAH!!\nCOBA KEMBALI!!");
+                            System.out.println("Apakah Anda ingin Menambah Layanan Tambahan");
+                            System.out.print("Y (untuk Ya)\nT (untuk Tidak) : ");
+                            confirm = input.nextLine();
 
-                    } while (confirm.equalsIgnoreCase("y"));
+                        }
+
+                    } while (!confirm.equalsIgnoreCase("t"));
 
                     //NOTA PEMESANAN RAPATT
                     boolean pemesananBerhasil = true;
@@ -634,6 +647,7 @@ public class BookingGedung {
         Scanner input = new Scanner(System.in);
         String confirmMenu;
 
+        //Tampilan menu admin
         do {
             System.out.println("====================");
             System.out.println("||   Menu Admin   ||");
@@ -751,6 +765,7 @@ public class BookingGedung {
         System.out.println("Total ruang rapat yang dipesan bulan ini: " + jumlahRuangRapatterpakai);
         System.out.println("===========================================");
     }
+    //fungsi laporan pendapatan
     static void LaporanPendapatan(int totalHargaPernikahan,int totalHargaRapat ){
         LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
         DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
