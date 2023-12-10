@@ -502,11 +502,13 @@ public class BookingGedung {
                  
             
                     do {
+                        System.out.println("===================================");
                         System.out.println("Layanan Tambahan: ");
                         System.out.println("1. Snack & Minuman\t Rp. 20.000");
                         System.out.println("2. Sound System\t\t Rp. 500.000 ");
                         System.out.println("3. LCD Proyektor\t Rp. 100.000");
                         System.out.println("4. Kursi Tambahan\t Rp. 0");
+                        System.out.println("===================================");
                         System.out.print("Pilih layanan tambahan anda : ");
                         int pilihan = input.nextInt();
                         switch (pilihan) {
@@ -555,12 +557,14 @@ public class BookingGedung {
                                 break;
                         
                         }
+                        System.out.println("===================================");
                         System.out.println("Layanan Tambahan yang Anda Pilih: ");
                         for (String layanan : layananTambahanRapat) {
                             if (layanan != null) {
                                 System.out.println(layanan);
                             }
                         }
+                         System.out.println("===================================");
                         System.out.println("Apakah Anda ingin Menambah Layanan Tambahan?");
                         System.out.print("Y (untuk Ya)\nT (untuk Tidak) : ");
                         confirm = input.nextLine();
@@ -598,8 +602,7 @@ public class BookingGedung {
                     }
                     
 
-                    //tampilanClosing();
-                    //CLOSING SCANNER
+                
 
                 }
             }else if (pilihanmenu == 1) {
@@ -635,9 +638,9 @@ public class BookingGedung {
             System.out.println("====================");
             System.out.println("||   Menu Admin   ||");
             System.out.println("====================");
-            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Harian\n3. Laporan Bulanan\n4. Keluar\nMasukkan Angka dari menu: ");
+            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Pendapatan\n3. Laporan Harian\n4. Laporan Bulanan\n5. Keluar\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
-            while (pilihanmenu > 4) {
+            while (pilihanmenu > 5) {
                 System.out.println("INPUT YANG ANDA MASUKKAN SALAH\nSILAHKAN ULANGI LAGI!!");
                 System.out.print("Masukkan angka kembali: ");
                 pilihanmenu = input.nextInt();
@@ -646,10 +649,12 @@ public class BookingGedung {
             if (pilihanmenu == 1) {
                 displayBookedVenues(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 2) {
+                LaporanPendapatan(totalHargaPernikahan, totalHargaRapat);
+            } else if(pilihanmenu == 3){
                 laporanHarian(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
-            } else if (pilihanmenu == 3){
+            } else if (pilihanmenu == 4){
                 laporanBulanan(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
-            } else if (pilihanmenu == 4) {
+            } else if (pilihanmenu == 5) {
                 System.out.println("Keluar dari menu admin");
                 break;
             }
@@ -684,10 +689,14 @@ public class BookingGedung {
 
     }
      // laporan harian
-     public static void laporanHarian(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+    static void laporanHarian(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+        LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
+        DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formatTanggalLaporanHarian = tanggalKeluarLaporan.format(formatTanggal);
         System.out.println("==========================================");
         System.out.println("Laporan Harian Gedung Nikah & Ruang Rapat");
         System.out.println("==========================================");
+        System.out.println("Tanggal Laporan: " + formatTanggalLaporanHarian);
 
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
@@ -712,10 +721,14 @@ public class BookingGedung {
     }
 
     // laporan bulanan
-    public static void laporanBulanan(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+    static void laporanBulanan(String [] gedungNikah, String [] ruangRapat, String [] tanggalPelaksanaanAcara, String [] tanggalPelaksanaanRapat) {
+        LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
+        DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formatTanggalLaporanBulanan = tanggalKeluarLaporan.format(formatTanggal);
         System.out.println("===========================================");
         System.out.println("Laporan Bulanan Gedung Nikah & Ruang Rapat");
         System.out.println("===========================================");
+        System.out.println("Tanggal Laporan: " + formatTanggalLaporanBulanan);
 
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
@@ -738,7 +751,25 @@ public class BookingGedung {
         System.out.println("Total ruang rapat yang dipesan bulan ini: " + jumlahRuangRapatterpakai);
         System.out.println("===========================================");
     }
+    static void LaporanPendapatan(int totalHargaPernikahan,int totalHargaRapat ){
+        LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
+        DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattanggallaporanPendapatan = tanggalKeluarLaporan.format(formatTanggal);
 
+        System.out.println("===========================================");
+        System.out.println("Laporan Pendapatan");
+        System.out.println("===========================================");
+        System.out.println("Tanggal Laporan: " + formattanggallaporanPendapatan);
+
+        int totalPendapatan = totalHargaPernikahan + totalHargaRapat;
+        System.out.println("Total Pendapatan Pernikahan: " + totalHargaPernikahan);
+        System.out.println("Total Pendapatan Rapat: " + totalHargaRapat);
+        System.out.println("Total Pendapatan Keseluruhan: " + totalPendapatan);
+        System.out.println("===========================================");
+
+
+    }
+    //Reschedule jadwal
     static String reschedulingJadwal (String tanggalPelaksanaanAcara[], String tanggalPelaksanaanRapat[]){
         String tanggalSebelum;
         String tanggalBaru = " ";
