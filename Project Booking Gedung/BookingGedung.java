@@ -4,15 +4,12 @@ import java.time.format.DateTimeFormatter;
 
 
 public class BookingGedung {
+    static String formattanggalPemesanan;
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String layananTambahan2[] = new String[5];
         String[][] akun = {};
         String[][] password = {};
-        LocalDateTime tanggalPemesanan = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String formattanggalPemesanan = tanggalPemesanan.format(format);
-
         //Penampilan awal
         PenampilanAwal();
 
@@ -121,6 +118,8 @@ public class BookingGedung {
     static String nomorTelepon, alamatEmail;
     static String jenisGedung;
     static Scanner input = new Scanner(System.in);
+    static String tanggalPendapatanPer [] = new String[100];
+    static String tanggalPendapatanRap [] = new String[100];
 
     //Fungsi untuk jumlah tamu acara pernikahan
     static boolean isValidJumlahTamu ( int tamu){
@@ -149,7 +148,7 @@ public class BookingGedung {
         
     }
     //fungsi untuk pemesanan Rapat
-    static int totalHargaRapat []= {};
+    static int totalHargaRapat []= new int[100];
     static int e = 0;
     static int totHarRap = 0;
     static void pemesananRapat() {
@@ -205,15 +204,17 @@ public class BookingGedung {
             jenisRuang = "Coba lagi";
         }
     }
-    
-    static int totalHargaPernikahan [] = {};
+    static int totalHargaPernikahan [] = new int[100];
     static int hargaGedung;
     static int a = 0;
     static int b = 0;
     static int c = 0;
     static int d = 0;
     static int totHarPer = 0;
+    static int waktuPer = 0;
+    static int waktuRap = 0;
     static boolean tanggal = true;
+
     static void menu(String[] layananTambahan2,String formattanggalPemesanan){
         String identitasPemesan, layananTambahan, konfirmasi, acara, confirmMenu;
         //Tampilan menu pelanggan
@@ -236,6 +237,19 @@ public class BookingGedung {
                 identitasPemesan = input.nextLine();
                 System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
                 acara = input.nextLine();
+                if (acara.equalsIgnoreCase("pernikahan")){
+                    LocalDateTime tanggalPemesanan = LocalDateTime.now();
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    formattanggalPemesanan = tanggalPemesanan.format(format);
+                    tanggalPendapatanPer [waktuPer] = formattanggalPemesanan;
+                    waktuPer++;
+                }else {
+                    LocalDateTime tanggalPemesanan = LocalDateTime.now();
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    formattanggalPemesanan = tanggalPemesanan.format(format);
+                    tanggalPendapatanRap [waktuRap] = formattanggalPemesanan;
+                    waktuRap++;
+                }
                 while (!(acara.equalsIgnoreCase("pernikahan")) && !(acara.equalsIgnoreCase("rapat"))){
                     System.out.println("input yang anda masukkan error, silahkan coba lagi");
                     System.out.print("Acara yang akan digelar (pernikahan / rapat) : ");
@@ -346,7 +360,6 @@ public class BookingGedung {
                                         hargaPaket [n] *= jumlahPaketCatering[m]; 
                                         m++;
                                         n++;
-                                        totHarPer ++;
                                         input.nextLine();
                                         break;
                                     case "2":
@@ -359,7 +372,6 @@ public class BookingGedung {
                                         m++;
                                         n++;
                                         k++;
-                                        totHarPer++;
                                         input.nextLine();
                                         break;
                                     case "3":
@@ -372,7 +384,6 @@ public class BookingGedung {
                                         m++;
                                         n++;
                                         k++;
-                                        totHarPer++;
                                         input.nextLine();
                                         break;
                                     default:
@@ -390,8 +401,6 @@ public class BookingGedung {
                             LayananTambahan [r] = 800000;
                             totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
-                            totHarPer++;
-
                         }
                         if (layananTambahan.equals("3")) {
                             layananTambahan2[jmlLayananTambahan] = "Photography + Video Graphy";
@@ -399,7 +408,6 @@ public class BookingGedung {
                             LayananTambahan [r] = 3000000;
                             totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
-                            totHarPer++;
 
                         }
                         if (layananTambahan.equals("4")) {
@@ -408,7 +416,6 @@ public class BookingGedung {
                             LayananTambahan [r] = 10000000;
                             totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
-                            totHarPer++;
                         }
                         if (layananTambahan.equals("5")) {
                             layananTambahan2[jmlLayananTambahan] = "Musik dan Hiburan";
@@ -416,12 +423,10 @@ public class BookingGedung {
                             LayananTambahan [r] = 5000000;
                             totalHargaPernikahan[totHarPer] += LayananTambahan [r];
                             r++;
-                            totHarPer++;
                         }
                         System.out.print("Apakah Ingin Menambah Layanan Tambahan?\n(y) untuk iya\n(t) untuk tidak : ");
                         konfirmasi = input.nextLine();
                     } while (konfirmasi.equalsIgnoreCase("y"));
-
 
                     boolean pemesananBerhasil = true;
                     //Nota pemesanan acara pernikahan
@@ -432,7 +437,7 @@ public class BookingGedung {
                         System.out.println("           Nama Pemesan\t\t\t: " + identitasPemesan);
                         System.out.println("           Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("           Alamat Email Pemesan\t\t: " + alamatEmail);
-                        System.out.println("           Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
+                        System.out.println("           Tanggal Pemesanan\t\t: " + tanggalPendapatanPer [waktuPer - 1]);
                         System.out.println("           Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanAcara[a - 1]);
                         System.out.println("           Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("           Jenis Gedung\t\t\t: " + jenisGedung  + "\t = Rp. " + hargaGedung);
@@ -471,6 +476,7 @@ public class BookingGedung {
                         System.out.println("           Alamat Email\t\t\t: " + alamatEmail);
                         System.out.println("           Biaya total = " + " Rp. " + totalHargaPernikahan[totHarPer]);
                         System.out.println("=================================================================================");
+                        totHarPer++;
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
 
@@ -537,7 +543,6 @@ public class BookingGedung {
                                 totalHargaRapat[totHarRap] += hargaLayananTambahanRapat[h];
                                 h++;
                                 g++;
-                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 2:
@@ -546,7 +551,6 @@ public class BookingGedung {
                                 totalHargaRapat[totHarRap] += 500000;
                                 h++;
                                 g++;
-                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 3:
@@ -555,7 +559,6 @@ public class BookingGedung {
                                 totalHargaRapat[totHarRap] += 100000;
                                 h++;
                                 g++;
-                                totHarRap++;
                                 input.nextLine();
                                 break;
                             case 4:
@@ -567,7 +570,6 @@ public class BookingGedung {
                                 totalHargaRapat[totHarRap] += 0;
                                 h++;
                                 g++;
-                                totHarRap++;
                                 input.nextLine();
                                 break;
 
@@ -606,7 +608,7 @@ public class BookingGedung {
                         System.out.println("         Nama Pemesan\t\t\t: " + identitasPemesan);
                         System.out.println("         Nomor Handphone Pemesan\t: " + nomorTelepon);
                         System.out.println("         Alamat Email Pemesan\t\t: " + alamatEmail);
-                        System.out.println("         Tanggal Pemesanan\t\t: " + formattanggalPemesanan);
+                        System.out.println("         Tanggal Pemesanan\t\t: " + tanggalPendapatanRap [waktuRap - 1]);
                         System.out.println("         Tanggal Pelaksanaan Acara\t: " + tanggalPelaksanaanRapat[b - 1]);
                         System.out.println("         Jumlah Tamu Undangan\t\t: " + jumlahTamu);
                         System.out.println("         Jenis Ruangan\t\t\t: " + jenisRuang + " : " + HargaRuang);
@@ -624,6 +626,7 @@ public class BookingGedung {
                         System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
                         System.out.println("        Total Biaya : " + totalHargaRapat[totHarRap]);
                         System.out.println("=======================================================================");
+                        totHarRap++;
                     } else {
                         System.out.println("Maaf, Pemesanan yang anda minta tidak dapat kami proses. Silahkan coba lagi nanti.");
                     }
@@ -677,7 +680,7 @@ public class BookingGedung {
             if (pilihanmenu == 1) {
                 displayBookedVenues(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 2) {
-               LaporanPendapatan(totalHargaPernikahan,totalHargaRapat);
+               LaporanPendapatan(totalHargaPernikahan,totalHargaRapat, tanggalPendapatanPer, tanggalPendapatanRap);
             } else if(pilihanmenu == 3){
                 laporanHarian(gedungNikah, ruangRapat, tanggalPelaksanaanAcara, tanggalPelaksanaanRapat);
             } else if (pilihanmenu == 4){
@@ -781,26 +784,27 @@ public class BookingGedung {
         System.out.println("===========================================");
     }
     //fungsi laporan pendapatan
-    static void LaporanPendapatan(int [] totalHargaPernikahan,int [] totalHargaRapat ){
-        LocalDateTime tanggalKeluarLaporan = LocalDateTime.now();
-        DateTimeFormatter formatTanggal = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String formattanggallaporanPendapatan = tanggalKeluarLaporan.format(formatTanggal);
-
+    static void LaporanPendapatan(int [] totalHargaPernikahan,int [] totalHargaRapat, String tanggalPendapatanPer[], String tanggalPendapatanRap [] ){
         System.out.println("===========================================");
         System.out.println("Laporan Pendapatan");
         System.out.println("===========================================");
-        System.out.println("Tanggal Laporan: " + formattanggallaporanPendapatan);
 
         int totalPendapatanPernikahan = 0;
         int totalPendapatanRapat = 0;
 
         //total pendapatan pernikahan
-        for (int i = 0; i < totalHargaPernikahan.length; i++) {
+        System.out.println("SEWA GEDUNG PERNIKAHAN");
+        for (int i = 0; i < totHarPer ; i++) {
+            System.out.print(tanggalPendapatanPer [i] + " : ");
+            System.out.println(totalHargaPernikahan [i]);
             totalPendapatanPernikahan += totalHargaPernikahan[i];
         }
 
         //total pendapatan rapat
-        for (int i = 0; i < totalHargaRapat.length; i++) {
+        System.out.println("SEWA RUANG RAPAT");
+        for (int i = 0; i < totHarRap; i++) {
+            System.out.print(tanggalPendapatanRap [i] + " : ");
+            System.out.println(totalHargaRapat [i]);
             totalPendapatanRapat += totalHargaRapat[i];
         }
 
