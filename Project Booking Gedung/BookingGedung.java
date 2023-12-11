@@ -746,7 +746,7 @@ public class BookingGedung {
             System.out.println("====================");
             System.out.println("||   Menu Admin   ||");
             System.out.println("====================");
-            System.out.print("1. Lihat Gedung yang Terpesan\n2. Laporan Pendapatan\n3. Laporan Harian\n4. Laporan Bulanan\n5. Keluar\nMasukkan Angka dari menu: ");
+            System.out.print("1. Lihat Gedung dan Ruangan yang Terpesan\n2. Laporan Pendapatan\n3. Laporan Harian\n4. Laporan Bulanan\n5. Keluar\nMasukkan Angka dari menu: ");
             int pilihanmenu = input.nextInt();
             while (pilihanmenu > 5) {
                 System.out.println("INPUT YANG ANDA MASUKKAN SALAH\nSILAHKAN ULANGI LAGI!!");
