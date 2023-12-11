@@ -438,6 +438,15 @@ public class BookingGedung {
                     System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
                     System.out.print("Masukkan pilihan anda: ");
                     pembayaran = input.nextLine();
+                    while (!pembayaran.equalsIgnoreCase("bca") && !pembayaran.equalsIgnoreCase("bni") 
+                    && !pembayaran.equalsIgnoreCase("bri") && !pembayaran.equalsIgnoreCase("btn") && 
+                    !pembayaran.equalsIgnoreCase("bsi")) {
+                        System.out.println("Pilihan tidak valid, silahkan coba lagi");
+                        System.out.println("Pilih Bank untuk pembayaran:");
+                        System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
+                        System.out.print("Masukkan pilihan anda: ");
+                    pembayaran = input.nextLine();
+                    }
                     if (pembayaran.equalsIgnoreCase("BCA")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
                         pembayaran = "BCA (0364823478) de Lobby Suites Hotel";
@@ -638,6 +647,15 @@ public class BookingGedung {
                     System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
                     System.out.print("Masukkan pilihan anda: ");
                     pembayaran = input.nextLine();
+                    while (!pembayaran.equalsIgnoreCase("bca") && !pembayaran.equalsIgnoreCase("bni") 
+                    && !pembayaran.equalsIgnoreCase("bri") && !pembayaran.equalsIgnoreCase("btn") && 
+                    !pembayaran.equalsIgnoreCase("bsi")) {
+                        System.out.println("Pilihan tidak valid, silahkan coba lagi");
+                        System.out.println("Pilih Bank untuk pembayaran:");
+                        System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
+                        System.out.print("Masukkan pilihan anda: ");
+                    pembayaran = input.nextLine();
+                    }
                     if (pembayaran.equalsIgnoreCase("BCA")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
                         pembayaran = "BCA (0364823478) de Lobby Suites Hotel";
