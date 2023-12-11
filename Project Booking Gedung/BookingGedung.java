@@ -120,6 +120,7 @@ public class BookingGedung {
     static Scanner input = new Scanner(System.in);
     static String tanggalPendapatanPer [] = new String[100];
     static String tanggalPendapatanRap [] = new String[100];
+    static String pembayaran;
 
     //Fungsi untuk jumlah tamu acara pernikahan
     static boolean isValidJumlahTamu ( int tamu){
@@ -428,6 +429,28 @@ public class BookingGedung {
                         konfirmasi = input.nextLine();
                     } while (konfirmasi.equalsIgnoreCase("y"));
 
+                    //Pembayaran
+                    System.out.println("-----------------------------------------");
+                    System.out.println("\t---TRANSFER PEMBAYARAN---");
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Pilih Bank untuk pembayaran:");
+                    System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
+                    System.out.print("Masukkan pilihan anda: ");
+                    pembayaran = input.nextLine();
+                    if (pembayaran.equalsIgnoreCase("BCA")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
+                     } else if (pembayaran.equalsIgnoreCase("BNI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BNI");
+                    } else if (pembayaran.equalsIgnoreCase("BRI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BRI");
+                    } else if (pembayaran.equalsIgnoreCase("BTN")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BTN");
+                    } else if (pembayaran.equalsIgnoreCase("BSI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BSI");
+                    } else {
+                        System.out.println("Pilihan anda tidak tersedia");
+                    }
+
                     boolean pemesananBerhasil = true;
                     //Nota pemesanan acara pernikahan
                     isValidJumlahTamu(jumlahTamu);
@@ -475,6 +498,7 @@ public class BookingGedung {
                         System.out.println("           Nomor Telepon\t\t: " + nomorTelepon);
                         System.out.println("           Alamat Email\t\t\t: " + alamatEmail);
                         System.out.println("           Biaya total = " + " Rp. " + totalHargaPernikahan[totHarPer]);
+                        System.out.println("           Pembayaran Melalui: " + pembayaran);
                         System.out.println("=================================================================================");
                         totHarPer++;
                     } else {
@@ -599,6 +623,29 @@ public class BookingGedung {
                         }
 
                     } while (!confirm.equalsIgnoreCase("t"));
+                    
+                    //Pembayaran
+                    System.out.println("-----------------------------------------");
+                    System.out.println("\t---TRANSFER PEMBAYARAN---");
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Pilih Bank untuk pembayaran:");
+                    System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
+                    System.out.print("Masukkan pilihan anda: ");
+                    pembayaran = input.nextLine();
+                     if (pembayaran.equalsIgnoreCase("BCA")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
+                     } else if (pembayaran.equalsIgnoreCase("BNI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BNI");
+                    } else if (pembayaran.equalsIgnoreCase("BRI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BRI");
+                    } else if (pembayaran.equalsIgnoreCase("BTN")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BTN");
+                    } else if (pembayaran.equalsIgnoreCase("BSI")){
+                        System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BSI");
+                    } else {
+                        System.out.println("Pilihan anda tidak tersedia");
+                    }
+
 
                     //NOTA PEMESANAN RAPATT
                     boolean pemesananBerhasil = true;
@@ -624,7 +671,8 @@ public class BookingGedung {
                         }
                         System.out.println("         Nomor Telepon\t\t\t: " + nomorTelepon);
                         System.out.println("         Alamat Email\t\t\t: " + alamatEmail);
-                        System.out.println("        Total Biaya : " + totalHargaRapat[totHarRap]);
+                        System.out.println("         Total Biaya : " + totalHargaRapat[totHarRap]);
+                        System.out.println("         Pembayaran Melalui: " + pembayaran );
                         System.out.println("=======================================================================");
                         totHarRap++;
                     } else {
@@ -733,6 +781,7 @@ public class BookingGedung {
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
 
+        System.out.println("Gedung Pernikahan");
         for (int i = 0; i < gedungNikah.length; i++) {
             if (gedungNikah[i] != null) {
                 System.out.println(gedungNikah[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanAcara[i]);
@@ -740,6 +789,7 @@ public class BookingGedung {
             }
         }
 
+        System.out.println("Ruang Rapat");
         for (int i = 0; i < ruangRapat.length; i++) {
             if (ruangRapat[i] != null) {
                 System.out.println(ruangRapat[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanRapat[i]);
@@ -765,6 +815,7 @@ public class BookingGedung {
         int jumlahGedungNikahterpakai = 0;
         int jumlahRuangRapatterpakai = 0;
 
+        System.out.println("Gedung Pernikahan");
         for (int i = 0; i < gedungNikah.length; i++) {
             if (gedungNikah[i] != null ) {
                 System.out.println(gedungNikah[i] + " SUDAH DIPESAN PADA TANGGAL " + tanggalPelaksanaanAcara[i]);
@@ -772,6 +823,7 @@ public class BookingGedung {
             }
         }
 
+        System.out.println("Ruang Rapat");
         for (int i = 0; i < ruangRapat.length; i++) {
             if (ruangRapat[i] != null ) {
                 System.out.println(ruangRapat[i] + " SUDAH DIPESAN PADA TANGGAL  " + tanggalPelaksanaanRapat[i]);
@@ -786,33 +838,39 @@ public class BookingGedung {
     //fungsi laporan pendapatan
     static void LaporanPendapatan(int [] totalHargaPernikahan,int [] totalHargaRapat, String tanggalPendapatanPer[], String tanggalPendapatanRap [] ){
         System.out.println("===========================================");
-        System.out.println("Laporan Pendapatan");
+        System.out.println("\t---LAPORAN PENDAPATAN---\t\t");
         System.out.println("===========================================");
 
         int totalPendapatanPernikahan = 0;
         int totalPendapatanRapat = 0;
 
         //total pendapatan pernikahan
+        System.out.println("-------------------------------------------");
         System.out.println("SEWA GEDUNG PERNIKAHAN");
         for (int i = 0; i < totHarPer ; i++) {
             System.out.print(tanggalPendapatanPer [i] + " : ");
             System.out.println(totalHargaPernikahan [i]);
             totalPendapatanPernikahan += totalHargaPernikahan[i];
         }
-
+        System.out.println("-------------------------------------------");
+        System.out.println("===========================================");
         //total pendapatan rapat
+        System.out.println("-------------------------------------------");
         System.out.println("SEWA RUANG RAPAT");
         for (int i = 0; i < totHarRap; i++) {
             System.out.print(tanggalPendapatanRap [i] + " : ");
             System.out.println(totalHargaRapat [i]);
             totalPendapatanRapat += totalHargaRapat[i];
         }
+        System.out.println("-------------------------------------------");
 
         int totalPendapatanKeseluruhan = totalPendapatanPernikahan + totalPendapatanRapat;
-        
-        System.out.println("Total Pendapatan Pernikahan: " + totalPendapatanPernikahan);
-        System.out.println("Total Pendapatan Rapat: " + totalPendapatanRapat);
-        System.out.println("Total Pendapatan Keseluruhan: " + totalPendapatanKeseluruhan);
+        System.out.println("===========================================");
+        System.out.println("\t\t---TOTAL---\t\t");
+        System.out.println("===========================================");
+        System.out.println("Total Pendapatan Pernikahan: " + " Rp. " + totalPendapatanPernikahan);
+        System.out.println("Total Pendapatan Rapat: " +  " Rp. " +totalPendapatanRapat);
+        System.out.println("Total Pendapatan Keseluruhan: " + " Rp. " + totalPendapatanKeseluruhan);
         System.out.println("===========================================");
 
 
