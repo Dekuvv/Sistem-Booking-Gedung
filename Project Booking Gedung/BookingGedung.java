@@ -122,6 +122,7 @@ public class BookingGedung {
     static String tanggalPendapatanRap [] = new String[100];
     static String pembayaran;
 
+
     //Fungsi untuk jumlah tamu acara pernikahan
     static boolean isValidJumlahTamu ( int tamu){
         while (tamu > 400) {
@@ -439,14 +440,19 @@ public class BookingGedung {
                     pembayaran = input.nextLine();
                     if (pembayaran.equalsIgnoreCase("BCA")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
-                     } else if (pembayaran.equalsIgnoreCase("BNI")){
+                        pembayaran = "BCA (0364823478) de Lobby Suites Hotel";
+                    } else if (pembayaran.equalsIgnoreCase("BNI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BNI");
+                        pembayaran = "BNI (7239084680) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BRI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BRI");
+                        pembayaran = "BRI (3586890460) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BTN")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BTN");
+                        pembayaran = "BTN (0287346233) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BSI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BSI");
+                        pembayaran = "BSI (5358900626) de Lobby Suites Hotel";
                     } else {
                         System.out.println("Pilihan anda tidak tersedia");
                     }
@@ -623,7 +629,7 @@ public class BookingGedung {
                         }
 
                     } while (!confirm.equalsIgnoreCase("t"));
-                    
+
                     //Pembayaran
                     System.out.println("-----------------------------------------");
                     System.out.println("\t---TRANSFER PEMBAYARAN---");
@@ -632,16 +638,21 @@ public class BookingGedung {
                     System.out.println("1. BCA (0364823478) de Lobby Suites Hotel\n2. BNI (7239084680) de Lobby Suites Hotel\n3. BRI (3586890460) de Lobby Suites Hotel\n4. BTN (0287346233) de Lobby Suites Hotel\n5. BSI (5358900626) de Lobby Suites Hotel");
                     System.out.print("Masukkan pilihan anda: ");
                     pembayaran = input.nextLine();
-                     if (pembayaran.equalsIgnoreCase("BCA")){
+                    if (pembayaran.equalsIgnoreCase("BCA")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BCA");
-                     } else if (pembayaran.equalsIgnoreCase("BNI")){
+                        pembayaran = "BCA (0364823478) de Lobby Suites Hotel";
+                    } else if (pembayaran.equalsIgnoreCase("BNI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BNI");
+                        pembayaran = "BNI (7239084680) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BRI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BRI");
+                        pembayaran = "BRI (3586890460) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BTN")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BTN");
+                        pembayaran = "BTN (0287346233) de Lobby Suites Hotel";
                     } else if (pembayaran.equalsIgnoreCase("BSI")){
                         System.out.println("Anda akan melakukan transfer pembayaran melalui Bank BSI");
+                        pembayaran = "BSI (5358900626) de Lobby Suites Hotel";
                     } else {
                         System.out.println("Pilihan anda tidak tersedia");
                     }
